@@ -42,7 +42,7 @@ export default function Home() {
               United Nations Global Humanitarian Need
             </h1>
             <p className="text-sm text-gray-400 mt-1">
-              Based on CBPF Allocations & Global Humanitarian Programme Cycle 2025
+              Based on CBPF Allocations & Global HPC 2025
             </p>
             {/* ML Funding Allocator Button */}
             {!isLoading && (

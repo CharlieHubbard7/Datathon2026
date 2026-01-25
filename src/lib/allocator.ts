@@ -113,22 +113,41 @@ export function clusterCountries(countriesMap: CountryDataMap): ClusterInfo[] {
     });
   }
 
-  // Sort by priority (highest first) for labeling
+  // Assign labels based on centroid characteristics (need vs funding)
+  // Find median values for need and funding to determine high/low thresholds
+  const needValues = clusters.map(c => c.avgNeedScore).sort((a, b) => a - b);
+  const fundingCentroids = clusters.map((c, i) => result.centroids[c.id]?.[1] ?? 0).sort((a, b) => a - b);
+
+  const medianNeed = needValues.length > 1
+    ? (needValues[Math.floor(needValues.length / 2) - 1] + needValues[Math.floor(needValues.length / 2)]) / 2
+    : needValues[0] || 50;
+  const medianFunding = fundingCentroids.length > 1
+    ? (fundingCentroids[Math.floor(fundingCentroids.length / 2) - 1] + fundingCentroids[Math.floor(fundingCentroids.length / 2)]) / 2
+    : fundingCentroids[0] || 0.5;
+
+  for (let i = 0; i < clusters.length; i++) {
+    const cluster = clusters[i];
+    const centroid = result.centroids[cluster.id];
+    const highNeed = cluster.avgNeedScore >= medianNeed;
+    const highFunding = centroid ? centroid[1] >= medianFunding : false;
+
+    if (highNeed && !highFunding) {
+      cluster.name = 'High Need Low Funding';
+      cluster.color = '#DC143C'; // Red - most critical
+    } else if (highNeed && highFunding) {
+      cluster.name = 'High Need High Funding';
+      cluster.color = '#FFA500'; // Orange - supported but high need
+    } else if (!highNeed && !highFunding) {
+      cluster.name = 'Low Need Low Funding';
+      cluster.color = '#FFD700'; // Gold - underfunded but lower need
+    } else {
+      cluster.name = 'Low Need High Funding';
+      cluster.color = '#22C55E'; // Green - well covered
+    }
+  }
+
+  // Sort by priority (highest first) for display
   clusters.sort((a, b) => b.priority - a.priority);
-
-  // Assign labels based on relative ranking
-  const clusterLabels = [
-    { name: 'Critical Need', color: '#DC143C' },    // Highest priority - red
-    { name: 'High Priority', color: '#FF6347' },    // Second - tomato
-    { name: 'Moderate Priority', color: '#FFA500' }, // Third - orange
-    { name: 'Lower Priority', color: '#FFD700' },   // Fourth - gold
-  ];
-
-  clusters.forEach((cluster, index) => {
-    const label = clusterLabels[Math.min(index, clusterLabels.length - 1)];
-    cluster.name = label.name;
-    cluster.color = label.color;
-  });
 
   return clusters;
 }
