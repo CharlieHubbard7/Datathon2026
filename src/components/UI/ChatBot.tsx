@@ -59,15 +59,19 @@ export function ChatBot({ country }: ChatBotProps) {
         }),
       });
 
-      if (!response.ok) throw new Error('Failed to get response');
-
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to get response');
+      }
+
       const assistantMessage: ChatMessage = { role: 'assistant', content: data.message };
       addChatMessage(country.iso3, assistantMessage);
     } catch (error) {
+      const errorText = error instanceof Error ? error.message : 'Unknown error';
       const errorMessage: ChatMessage = {
         role: 'assistant',
-        content: 'I apologize, but I encountered an error. Please try again.',
+        content: `Error: ${errorText}. Please check your API key and try again.`,
       };
       addChatMessage(country.iso3, errorMessage);
     } finally {

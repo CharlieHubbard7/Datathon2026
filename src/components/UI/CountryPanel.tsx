@@ -44,13 +44,17 @@ export function CountryPanel() {
           }),
         });
 
+        const data = await response.json();
         if (response.ok) {
-          const data = await response.json();
           setLocalSummary(data.message);
           setSummary(country.iso3, data.message);
+        } else {
+          console.error('API error:', data.error);
+          setLocalSummary(`Unable to load summary: ${data.error || 'API error'}`);
         }
       } catch (error) {
         console.error('Failed to fetch summary:', error);
+        setLocalSummary('Unable to connect to AI service. Check your API key.');
       } finally {
         setLoadingSummary(false);
       }
