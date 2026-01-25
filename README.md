@@ -12,11 +12,11 @@ This project renders a realistic globe using web-based 3D graphics and overlays:
 
 ## ✨ Features
 
-* 🌐 **3D Interactive Globe** (rotate, pan, zoom)
-* 🗺️ **Accurate Country Borders** rendered from GeoJSON data
-* 🔥 **Severity Heatmap Overlay** mapped to latitude/longitude
-* 🎨 Clean visual layering (heatmap + country outlines)
-* ⚡ WebGL-powered performance using modern JS libraries
+*  **3D Interactive Globe** (rotate, pan, zoom)
+*  **Accurate Country Borders** rendered from GeoJSON data
+*  **Severity Heatmap Overlay** mapped to latitude/longitude
+*  **AI Agent** for humanitarian inquiry
+*  **Funding Allocation** by linear proportionality
 
 ---
 
@@ -31,7 +31,10 @@ This project renders a realistic globe using web-based 3D graphics and overlays:
 
 ## 📸 Preview
 
-> *(Add screenshots or a demo GIF here to showcase the globe and heatmap)*
+<img width="1271" height="584" alt="Screenshot 2026-01-25 at 12 50 58 PM" src="https://github.com/user-attachments/assets/b36c09c1-eaad-4af6-9ae1-fc4417378578" />
+<img width="1275" height="590" alt="Screenshot 2026-01-25 at 12 51 12 PM" src="https://github.com/user-attachments/assets/4d3a771d-5a94-4fcd-a2f1-83faa44cbf29" />
+<img width="1272" height="589" alt="Screenshot 2026-01-25 at 12 51 23 PM" src="https://github.com/user-attachments/assets/7058c9a5-3ddd-4720-a46a-d65f7fa1da65" />
+<img width="1279" height="591" alt="Screenshot 2026-01-25 at 12 51 37 PM" src="https://github.com/user-attachments/assets/10a5e899-aa8d-4236-9630-e3aed51e89d0" />
 
 ---
 
