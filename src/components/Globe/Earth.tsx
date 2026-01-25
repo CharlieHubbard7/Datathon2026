@@ -12,7 +12,7 @@ interface EarthProps {
 }
 
 export function Earth({
-  radius = 1.98,
+  radius = 1.995,
   autoRotate = true,
   autoRotateSpeed = 0.1,
 }: EarthProps) {

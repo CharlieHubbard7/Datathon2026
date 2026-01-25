@@ -1,67 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useStore } from '@/store/useStore';
-import { getScoreColor, getNeedLevel, NEED_LABELS, formatNumber, formatPercentage } from '@/lib/colors';
+import { getScoreColor, getNeedLevel, NEED_LABELS, formatPercentage } from '@/lib/colors';
 import { MetricCard } from './MetricCard';
 import { ChatBot } from './ChatBot';
 
 export function CountryPanel() {
-  const { selectedCountry, countries, selectCountry, getChatHistory, setSummary } = useStore();
-  const [summary, setLocalSummary] = useState<string | null>(null);
-  const [loadingSummary, setLoadingSummary] = useState(false);
+  const { selectedCountry, countries, selectCountry } = useStore();
 
   const country = selectedCountry ? countries[selectedCountry] : null;
-  const chatHistory = selectedCountry ? getChatHistory(selectedCountry) : null;
-
-  // Fetch AI summary when country is selected
-  useEffect(() => {
-    if (!country || chatHistory?.summary) {
-      setLocalSummary(chatHistory?.summary || null);
-      return;
-    }
-
-    const fetchSummary = async () => {
-      setLoadingSummary(true);
-      try {
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            message: 'Generate a brief 2-3 sentence summary of how individuals or organizations can help address the humanitarian needs in this country. Be specific and actionable.',
-            country: {
-              name: country.country_name,
-              iso3: country.iso3,
-              need_score: country.need_score,
-              population: country.population,
-              people_in_need: country.people_in_need,
-              targeted_individuals: country.targeted_individuals,
-              helped_individuals: country.helped_individuals,
-              top_3_unmet_groups: country.top_3_unmet_groups,
-            },
-            history: [],
-            isSummary: true,
-          }),
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-          setLocalSummary(data.message);
-          setSummary(country.iso3, data.message);
-        } else {
-          console.error('API error:', data.error);
-          setLocalSummary(`Unable to load summary: ${data.error || 'API error'}`);
-        }
-      } catch (error) {
-        console.error('Failed to fetch summary:', error);
-        setLocalSummary('Unable to connect to AI service. Check your API key.');
-      } finally {
-        setLoadingSummary(false);
-      }
-    };
-
-    fetchSummary();
-  }, [country, chatHistory?.summary, setSummary]);
 
   if (!country) return null;
 
@@ -164,31 +111,9 @@ export function CountryPanel() {
             </div>
           </div>
 
-          {/* AI Summary */}
-          <div className="p-4 border-b border-gray-700">
-            <h3 className="text-sm font-semibold text-gray-300 mb-3">How You Can Help</h3>
-            {loadingSummary ? (
-              <div className="bg-gray-800/50 rounded-lg p-4">
-                <div className="animate-pulse space-y-2">
-                  <div className="h-4 bg-gray-700 rounded w-3/4" />
-                  <div className="h-4 bg-gray-700 rounded w-full" />
-                  <div className="h-4 bg-gray-700 rounded w-5/6" />
-                </div>
-              </div>
-            ) : summary ? (
-              <div className="bg-gray-800/50 rounded-lg p-4">
-                <p className="text-sm text-gray-300 leading-relaxed">{summary}</p>
-              </div>
-            ) : (
-              <div className="bg-gray-800/50 rounded-lg p-4 text-sm text-gray-400">
-                Unable to load summary. Try using the chatbot below.
-              </div>
-            )}
-          </div>
-
           {/* Chatbot */}
           <div className="p-4">
-            <h3 className="text-sm font-semibold text-gray-300 mb-3">Ask Questions</h3>
+            <h3 className="text-sm font-semibold text-gray-300 mb-3">Ask the AI Assistant</h3>
             <ChatBot country={country} />
           </div>
         </div>

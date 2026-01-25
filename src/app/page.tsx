@@ -37,7 +37,7 @@ export default function Home() {
         <header className="fixed top-0 left-0 right-0 p-4 md:p-6 flex items-start justify-between">
           <div>
             <h1 className="text-xl md:text-2xl font-bold text-white">
-              Global Humanitarian Need
+              United Nations Global Humanitarian Need
             </h1>
             <p className="text-sm text-gray-400 mt-1">
               2025 Data Snapshot
@@ -55,7 +55,7 @@ export default function Home() {
 
         {/* Instructions (show when no country selected) */}
         {!selectedCountry && !isLoading && (
-          <div className="fixed bottom-24 left-1/2 -translate-x-1/2 text-center">
+          <div className="fixed bottom-4 left-1/2 -translate-x-1/2 text-center">
             <p className="text-sm text-gray-400 bg-gray-900/70 backdrop-blur-sm px-4 py-2 rounded-full">
               Click on a highlighted country to view details
             </p>

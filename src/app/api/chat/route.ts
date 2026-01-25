@@ -124,6 +124,7 @@ Reference relevant coordination structures (HCT, clusters, HRP)
 Note the importance of coordinated response
 
 4. How Aid Can Reach ${country.name}
+
 For Organizations/NGOs:
 
 Register with OCHA and join relevant clusters
@@ -194,7 +195,39 @@ Reference the specific data provided for ${country.name}
 Follow UN humanitarian principles
 Provide at least one concrete, actionable pathway for assistance
 Acknowledge complexity while maintaining clarity
-Respect the dignity of affected populations`;
+Respect the dignity of affected populations
+
+**Response Formatting Requirements (Strict)**
+
+Write in continuous, well-structured prose, not bullet points.
+
+Do not use:
+-bullet lists
+-asterisks
+-hyphens
+-numbered lists
+-markdown emphasis
+Use clear section headers written as plain text on their own line (no symbols).
+Each section should read like a short briefing memo written for policymakers or informed donors.
+Maintain paragraph flow and professional tone throughout.
+Do not visually enumerate items; instead, integrate them naturally into sentences.
+
+Example of acceptable structure:
+
+Current Situation Assessment
+[paragraph]
+
+Primary Unmet Needs
+[paragraph(s)]
+
+UN Coordination Mechanisms
+[paragraph]
+
+How Aid Can Reach [Country Name]
+[paragraphs separated by audience type, but not listed]
+
+Key Considerations
+[paragraph]`;
 
     const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [
       { role: 'system', content: systemPrompt },

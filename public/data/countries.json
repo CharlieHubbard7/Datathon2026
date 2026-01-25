@@ -6,129 +6,314 @@
     "people_in_need": 22887726,
     "targeted_individuals": 16790412,
     "helped_individuals": 18100000,
-    "inform_severity": 4.2,
-    "need_score": 85,
-    "top_3_unmet_groups": ["Internally Displaced Persons", "Children Under 5", "Women in Rural Areas"]
-  },
-  "YEM": {
-    "country_name": "Yemen",
-    "iso3": "YEM",
-    "population": 33696614,
-    "people_in_need": 21600000,
-    "targeted_individuals": 17300000,
-    "helped_individuals": 13200000,
-    "inform_severity": 4.8,
-    "need_score": 92,
-    "top_3_unmet_groups": ["Food Insecure Populations", "Internally Displaced Persons", "Children in Conflict Zones"]
-  },
-  "SSD": {
-    "country_name": "South Sudan",
-    "iso3": "SSD",
-    "population": 11544905,
-    "people_in_need": 9400000,
-    "targeted_individuals": 6800000,
-    "helped_individuals": 5200000,
-    "inform_severity": 4.5,
-    "need_score": 88,
-    "top_3_unmet_groups": ["Refugees", "Flood-Affected Communities", "Malnourished Children"]
-  },
-  "SDN": {
-    "country_name": "Sudan",
-    "iso3": "SDN",
-    "population": 45657202,
-    "people_in_need": 24800000,
-    "targeted_individuals": 18200000,
-    "helped_individuals": 8900000,
-    "inform_severity": 4.7,
-    "need_score": 94,
-    "top_3_unmet_groups": ["Conflict-Displaced Persons", "Cross-Border Refugees", "Urban Poor"]
-  },
-  "SOM": {
-    "country_name": "Somalia",
-    "iso3": "SOM",
-    "population": 17597511,
-    "people_in_need": 8250000,
-    "targeted_individuals": 5200000,
-    "helped_individuals": 4100000,
-    "inform_severity": 4.4,
-    "need_score": 78,
-    "top_3_unmet_groups": ["Drought-Affected Pastoralists", "Internally Displaced Persons", "Returnees"]
-  },
-  "UKR": {
-    "country_name": "Ukraine",
-    "iso3": "UKR",
-    "population": 37000000,
-    "people_in_need": 14600000,
-    "targeted_individuals": 11800000,
-    "helped_individuals": 9400000,
-    "inform_severity": 4.3,
-    "need_score": 72,
-    "top_3_unmet_groups": ["Frontline Communities", "Elderly in Conflict Areas", "Displaced Families"]
-  },
-  "HTI": {
-    "country_name": "Haiti",
-    "iso3": "HTI",
-    "population": 11724763,
-    "people_in_need": 5500000,
-    "targeted_individuals": 3200000,
-    "helped_individuals": 2100000,
-    "inform_severity": 4.1,
+    "inform_severity": 24.9,
     "need_score": 68,
-    "top_3_unmet_groups": ["Gang Violence Victims", "Food Insecure Households", "Children Out of School"]
+    "top_3_unmet_groups": [
+      "Children",
+      "Adults",
+      "Girls"
+    ]
+  },
+  "BFA": {
+    "country_name": "Burkina Faso",
+    "iso3": "BFA",
+    "population": 23449865,
+    "people_in_need": 5915136,
+    "targeted_individuals": 3672506,
+    "helped_individuals": 1800000,
+    "inform_severity": 12.6,
+    "need_score": 70,
+    "top_3_unmet_groups": [
+      "Host Communities",
+      "IDP",
+      "Children - Female"
+    ]
+  },
+  "CAF": {
+    "country_name": "Central African Republic",
+    "iso3": "CAF",
+    "population": 5296124,
+    "people_in_need": 2440338,
+    "targeted_individuals": 1772631,
+    "helped_individuals": 720000,
+    "inform_severity": 23,
+    "need_score": 81,
+    "top_3_unmet_groups": [
+      "Adult - Female",
+      "Adult - Male",
+      "Children - Female"
+    ]
+  },
+  "CMR": {
+    "country_name": "Cameroon",
+    "iso3": "CMR",
+    "population": 29400000,
+    "people_in_need": 3322058,
+    "targeted_individuals": 2100146,
+    "helped_individuals": 800000,
+    "inform_severity": 5.6,
+    "need_score": 55,
+    "top_3_unmet_groups": [
+      "IDP",
+      "Female",
+      "Male"
+    ]
   },
   "COD": {
     "country_name": "Democratic Republic of the Congo",
     "iso3": "COD",
-    "population": 99010212,
-    "people_in_need": 25400000,
-    "targeted_individuals": 16200000,
-    "helped_individuals": 11800000,
-    "inform_severity": 4.6,
-    "need_score": 82,
-    "top_3_unmet_groups": ["Eastern Province IDPs", "Child Soldiers", "Sexual Violence Survivors"]
+    "population": 117808862,
+    "people_in_need": 21241767,
+    "targeted_individuals": 10988449,
+    "helped_individuals": 9100000,
+    "inform_severity": 9,
+    "need_score": 66,
+    "top_3_unmet_groups": [
+      "Adult",
+      "Children",
+      "Female"
+    ]
   },
-  "ETH": {
-    "country_name": "Ethiopia",
-    "iso3": "ETH",
-    "population": 120283026,
-    "people_in_need": 20100000,
-    "targeted_individuals": 13400000,
-    "helped_individuals": 10200000,
-    "inform_severity": 4.0,
-    "need_score": 65,
-    "top_3_unmet_groups": ["Drought-Affected Farmers", "Tigray Conflict Survivors", "Somali Region Pastoralists"]
+  "COL": {
+    "country_name": "Colombia",
+    "iso3": "COL",
+    "population": 53110609,
+    "people_in_need": 9053352,
+    "targeted_individuals": 1991880,
+    "helped_individuals": 890000,
+    "inform_severity": 8.5,
+    "need_score": 76,
+    "top_3_unmet_groups": [
+      "Mujeres",
+      "Hombres",
+      "Niñas"
+    ]
   },
-  "NGA": {
-    "country_name": "Nigeria",
-    "iso3": "NGA",
-    "population": 218541212,
-    "people_in_need": 8300000,
-    "targeted_individuals": 5600000,
-    "helped_individuals": 4300000,
-    "inform_severity": 3.8,
-    "need_score": 55,
-    "top_3_unmet_groups": ["Northeast Conflict IDPs", "Flood-Affected Communities", "Banditry Victims"]
+  "GTM": {
+    "country_name": "Guatemala",
+    "iso3": "GTM",
+    "population": 18400000,
+    "people_in_need": 2163953,
+    "targeted_individuals": 1000000,
+    "helped_individuals": 275000,
+    "inform_severity": 5.9,
+    "need_score": 58,
+    "top_3_unmet_groups": [
+      "Personas en necesidad"
+    ]
   },
-  "SYR": {
-    "country_name": "Syria",
-    "iso3": "SYR",
-    "population": 21324367,
-    "people_in_need": 16700000,
-    "targeted_individuals": 10500000,
-    "helped_individuals": 8200000,
-    "inform_severity": 4.5,
-    "need_score": 86,
-    "top_3_unmet_groups": ["Long-term Displaced", "Earthquake Survivors", "Healthcare Workers"]
+  "HND": {
+    "country_name": "Honduras",
+    "iso3": "HND",
+    "population": 10800000,
+    "people_in_need": 1640224,
+    "targeted_individuals": 796974,
+    "helped_individuals": 132000,
+    "inform_severity": 7.6,
+    "need_score": 64,
+    "top_3_unmet_groups": [
+      "Host Communities",
+      "Male",
+      "Adult"
+    ]
+  },
+  "HTI": {
+    "country_name": "Haiti",
+    "iso3": "HTI",
+    "population": 11899555,
+    "people_in_need": 5986456,
+    "targeted_individuals": 3941924,
+    "helped_individuals": 2200000,
+    "inform_severity": 25.2,
+    "need_score": 84,
+    "top_3_unmet_groups": [
+      "Host Communities",
+      "Other",
+      "Adult - Female"
+    ]
+  },
+  "MLI": {
+    "country_name": "Mali",
+    "iso3": "MLI",
+    "population": 23134540,
+    "people_in_need": 6431534,
+    "targeted_individuals": 4709012,
+    "helped_individuals": 1800000,
+    "inform_severity": 13.9,
+    "need_score": 75,
+    "top_3_unmet_groups": [
+      "Children_female",
+      "Children_male",
+      "Adult_female"
+    ]
   },
   "MMR": {
     "country_name": "Myanmar",
     "iso3": "MMR",
-    "population": 54179306,
-    "people_in_need": 18600000,
-    "targeted_individuals": 5200000,
-    "helped_individuals": 2800000,
-    "inform_severity": 4.3,
-    "need_score": 76,
-    "top_3_unmet_groups": ["Rohingya Remaining", "Conflict-Displaced", "Healthcare Workers"]
+    "population": 57000000,
+    "people_in_need": 1957173,
+    "targeted_individuals": 1132893,
+    "helped_individuals": 1000000,
+    "inform_severity": 1.7,
+    "need_score": 38,
+    "top_3_unmet_groups": [
+      "Host Communities",
+      "Adult",
+      "Female"
+    ]
+  },
+  "MOZ": {
+    "country_name": "Mozambique",
+    "iso3": "MOZ",
+    "population": 34900000,
+    "people_in_need": 1305029,
+    "targeted_individuals": 1097096,
+    "helped_individuals": 1105000,
+    "inform_severity": 1.9,
+    "need_score": 35,
+    "top_3_unmet_groups": [
+      "General Population"
+    ]
+  },
+  "NER": {
+    "country_name": "Niger",
+    "iso3": "NER",
+    "population": 27522775,
+    "people_in_need": 2580329,
+    "targeted_individuals": 2132111,
+    "helped_individuals": 844290,
+    "inform_severity": 4.7,
+    "need_score": 48,
+    "top_3_unmet_groups": [
+      "General Population"
+    ]
+  },
+  "NGA": {
+    "country_name": "Nigeria",
+    "iso3": "NGA",
+    "population": 229200000,
+    "people_in_need": 7847048,
+    "targeted_individuals": 3584107,
+    "helped_individuals": 1600000,
+    "inform_severity": 1.7,
+    "need_score": 55,
+    "top_3_unmet_groups": [
+      "Adult - Female - Host Communities",
+      "Children - Female - Host Communities",
+      "Children - Male - Host Communities"
+    ]
+  },
+  "SDN": {
+    "country_name": "Sudan",
+    "iso3": "SDN",
+    "population": 46790687,
+    "people_in_need": 30440770,
+    "targeted_individuals": 20934770,
+    "helped_individuals": 20900000,
+    "inform_severity": 32.5,
+    "need_score": 85,
+    "top_3_unmet_groups": [
+      "Non-hosting population",
+      "Children",
+      "Female"
+    ]
+  },
+  "SLV": {
+    "country_name": "El Salvador",
+    "iso3": "SLV",
+    "population": 6400000,
+    "people_in_need": 818700,
+    "targeted_individuals": 407500,
+    "helped_individuals": 41000,
+    "inform_severity": 6.4,
+    "need_score": 60,
+    "top_3_unmet_groups": [
+      "Elderly - Female - IDP",
+      "Elderly - Male - IDP",
+      "Children - Male - IDP"
+    ]
+  },
+  "SOM": {
+    "country_name": "Somalia",
+    "iso3": "SOM",
+    "population": 19300000,
+    "people_in_need": 5979741,
+    "targeted_individuals": 4571657,
+    "helped_individuals": 2700000,
+    "inform_severity": 15.5,
+    "need_score": 67,
+    "top_3_unmet_groups": [
+      "General Population"
+    ]
+  },
+  "SSD": {
+    "country_name": "South Sudan",
+    "iso3": "SSD",
+    "population": 13442554,
+    "people_in_need": 9290088,
+    "targeted_individuals": 5386982,
+    "helped_individuals": 3900000,
+    "inform_severity": 34.6,
+    "need_score": 92,
+    "top_3_unmet_groups": [
+      "Children - Male",
+      "Children - Female",
+      "Adult - Female"
+    ]
+  },
+  "TCD": {
+    "country_name": "Chad",
+    "iso3": "TCD",
+    "population": 19373666,
+    "people_in_need": 7049226,
+    "targeted_individuals": 5475571,
+    "helped_individuals": 2000000,
+    "inform_severity": 18.2,
+    "need_score": 84,
+    "top_3_unmet_groups": [
+      "General Population"
+    ]
+  },
+  "UKR": {
+    "country_name": "Ukraine",
+    "iso3": "UKR",
+    "population": 35765386,
+    "people_in_need": 12708866,
+    "targeted_individuals": 6016366,
+    "helped_individuals": 4800000,
+    "inform_severity": 17.8,
+    "need_score": 82,
+    "top_3_unmet_groups": [
+      "Non-displaced war-affected",
+      "IDP"
+    ]
+  },
+  "VEN": {
+    "country_name": "Venezuela",
+    "iso3": "VEN",
+    "population": 27112332,
+    "people_in_need": 7943720,
+    "targeted_individuals": 5125664,
+    "helped_individuals": 2000000,
+    "inform_severity": 14.6,
+    "need_score": 82,
+    "top_3_unmet_groups": [
+      "General Population"
+    ]
+  },
+  "YEM": {
+    "country_name": "Yemen",
+    "iso3": "YEM",
+    "population": 34879018,
+    "people_in_need": 19540217,
+    "targeted_individuals": 10527030,
+    "helped_individuals": 5300000,
+    "inform_severity": 28,
+    "need_score": 100,
+    "top_3_unmet_groups": [
+      "Children",
+      "Elderly",
+      "Male"
+    ]
   }
 }

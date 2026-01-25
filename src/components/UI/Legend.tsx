@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useStore } from '@/store/useStore';
 import { NEED_COLORS, NEED_LABELS, type NeedLevel } from '@/lib/colors';
 
 const LEGEND_ITEMS: { level: NeedLevel; range: string }[] = [
@@ -15,7 +14,6 @@ const LEGEND_ITEMS: { level: NeedLevel; range: string }[] = [
 
 export function Legend() {
   const [isExpanded, setIsExpanded] = useState(true);
-  const { heatmapEnabled, toggleHeatmap } = useStore();
 
   return (
     <div className="fixed bottom-6 left-6 z-20">
@@ -38,27 +36,7 @@ export function Legend() {
 
         {/* Content */}
         {isExpanded && (
-          <div className="px-4 pb-4">
-            {/* Toggle */}
-            <div className="flex items-center justify-between py-2 mb-3 border-b border-gray-700">
-              <span className="text-xs text-gray-400">Show Heatmap</span>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggleHeatmap();
-                }}
-                className={`relative w-10 h-5 rounded-full transition-colors ${
-                  heatmapEnabled ? 'bg-blue-600' : 'bg-gray-600'
-                }`}
-              >
-                <span
-                  className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform ${
-                    heatmapEnabled ? 'translate-x-5' : ''
-                  }`}
-                />
-              </button>
-            </div>
-
+          <div className="px-4 pb-4 pt-1">
             {/* Scale */}
             <div className="space-y-2">
               {LEGEND_ITEMS.map(({ level, range }) => (
