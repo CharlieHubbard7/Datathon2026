@@ -1,0 +1,391 @@
+{
+  "AFG": {
+    "country_name": "Afghanistan",
+    "iso3": "AFG",
+    "population": 44532600,
+    "people_in_need": 23666389,
+    "targeted_individuals": 17327995,
+    "helped_individuals": 18400000,
+    "need_score": 67,
+    "top_3_unmet_groups": [
+      "Children",
+      "Adult",
+      "Children - Female"
+    ],
+    "cbpf_total_budget": 54578097.72000001,
+    "cbpf_project_count": 86,
+    "cbpf_budget_per_in_need": 2.3061438616596734
+  },
+  "BFA": {
+    "country_name": "Burkina Faso",
+    "iso3": "BFA",
+    "population": 23268117,
+    "people_in_need": 6293939,
+    "targeted_individuals": 3848843,
+    "helped_individuals": 1600000,
+    "need_score": 68,
+    "top_3_unmet_groups": [
+      "Host Communities",
+      "IDP",
+      "Children - Female"
+    ],
+    "cbpf_total_budget": 13449919.98,
+    "cbpf_project_count": 21,
+    "cbpf_budget_per_in_need": 2.1369638282163206
+  },
+  "CAF": {
+    "country_name": "Central African Republic",
+    "iso3": "CAF",
+    "population": 6148956,
+    "people_in_need": 2801810,
+    "targeted_individuals": 1945532,
+    "helped_individuals": 1500000,
+    "need_score": 70,
+    "top_3_unmet_groups": [
+      "General Population"
+    ],
+    "cbpf_total_budget": 18139917.2,
+    "cbpf_project_count": 42,
+    "cbpf_budget_per_in_need": 6.474356648023956
+  },
+  "CMR": {
+    "country_name": "Cameroon",
+    "iso3": "CMR",
+    "population": 28600000,
+    "people_in_need": 3369526,
+    "targeted_individuals": 2302441,
+    "helped_individuals": 1850000,
+    "need_score": 43,
+    "top_3_unmet_groups": [
+      "Host Communities",
+      "IDP",
+      "Returnees"
+    ],
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
+    "cbpf_budget_per_in_need": null
+  },
+  "COD": {
+    "country_name": "Democratic Republic of the Congo",
+    "iso3": "COD",
+    "population": 113607141,
+    "people_in_need": 25397896,
+    "targeted_individuals": 8702185,
+    "helped_individuals": 7100000,
+    "need_score": 69,
+    "top_3_unmet_groups": [
+      "Children",
+      "Female",
+      "Male"
+    ],
+    "cbpf_total_budget": 36600000.089999996,
+    "cbpf_project_count": 50,
+    "cbpf_budget_per_in_need": 1.4410642554800601
+  },
+  "COL": {
+    "country_name": "Colombia",
+    "iso3": "COL",
+    "population": 52100000,
+    "people_in_need": 8307129,
+    "targeted_individuals": 1726262,
+    "helped_individuals": 1200000,
+    "need_score": 63,
+    "top_3_unmet_groups": [
+      "Mujeres",
+      "Hombres",
+      "Niños"
+    ],
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
+    "cbpf_budget_per_in_need": null
+  },
+  "ETH": {
+    "country_name": "Ethiopia",
+    "iso3": "ETH",
+    "population": 126500000,
+    "people_in_need": 21360484,
+    "targeted_individuals": 15467955,
+    "helped_individuals": 12800000,
+    "need_score": 54,
+    "top_3_unmet_groups": [
+      "General Population"
+    ],
+    "cbpf_total_budget": 61503768.779999994,
+    "cbpf_project_count": 72,
+    "cbpf_budget_per_in_need": 2.879324681032508
+  },
+  "GTM": {
+    "country_name": "Guatemala",
+    "iso3": "GTM",
+    "population": 17600000,
+    "people_in_need": 5300000,
+    "targeted_individuals": 2500000,
+    "helped_individuals": 497000,
+    "need_score": 83,
+    "top_3_unmet_groups": [
+      "General Population"
+    ],
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
+    "cbpf_budget_per_in_need": null
+  },
+  "HND": {
+    "country_name": "Honduras",
+    "iso3": "HND",
+    "population": 9800000,
+    "people_in_need": 2800000,
+    "targeted_individuals": 1300000,
+    "helped_individuals": 470000,
+    "need_score": 72,
+    "top_3_unmet_groups": [
+      "General Population"
+    ],
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
+    "cbpf_budget_per_in_need": null
+  },
+  "HTI": {
+    "country_name": "Haiti",
+    "iso3": "HTI",
+    "population": 11700000,
+    "people_in_need": 5500000,
+    "targeted_individuals": 3600000,
+    "helped_individuals": 1900000,
+    "need_score": 83,
+    "top_3_unmet_groups": [
+      "Hommes",
+      "Garcons",
+      "Femmes"
+    ],
+    "cbpf_total_budget": 4026011.8,
+    "cbpf_project_count": 11,
+    "cbpf_budget_per_in_need": 0.7320021454545454
+  },
+  "MLI": {
+    "country_name": "Mali",
+    "iso3": "MLI",
+    "population": 22411911,
+    "people_in_need": 7107194,
+    "targeted_individuals": 4081412,
+    "helped_individuals": 1500000,
+    "need_score": 81,
+    "top_3_unmet_groups": [
+      "Children - female",
+      "Children - male",
+      "Adult - female"
+    ],
+    "cbpf_total_budget": 4199985.609999999,
+    "cbpf_project_count": 9,
+    "cbpf_budget_per_in_need": 0.5909484966922247
+  },
+  "MMR": {
+    "country_name": "Myanmar",
+    "iso3": "MMR",
+    "population": 56586109,
+    "people_in_need": 18590021,
+    "targeted_individuals": 5343351,
+    "helped_individuals": 3900000,
+    "need_score": 89,
+    "top_3_unmet_groups": [
+      "Host Communities",
+      "Adult",
+      "Female"
+    ],
+    "cbpf_total_budget": 27894424.960000005,
+    "cbpf_project_count": 48,
+    "cbpf_budget_per_in_need": 1.50050529582511
+  },
+  "MOZ": {
+    "country_name": "Mozambique",
+    "iso3": "MOZ",
+    "population": 33900000,
+    "people_in_need": 2252973,
+    "targeted_individuals": 1668269,
+    "helped_individuals": 1606673,
+    "need_score": 35,
+    "top_3_unmet_groups": [
+      "Returnees",
+      "IDP",
+      "Host Communities"
+    ],
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
+    "cbpf_budget_per_in_need": null
+  },
+  "NER": {
+    "country_name": "Niger",
+    "iso3": "NER",
+    "population": 26600000,
+    "people_in_need": 4500000,
+    "targeted_individuals": 3000076,
+    "helped_individuals": 3000000,
+    "need_score": 44,
+    "top_3_unmet_groups": [
+      "General Population"
+    ],
+    "cbpf_total_budget": 7977317.27,
+    "cbpf_project_count": 15,
+    "cbpf_budget_per_in_need": 1.772737171111111
+  },
+  "NGA": {
+    "country_name": "Nigeria",
+    "iso3": "NGA",
+    "population": 223800000,
+    "people_in_need": 7945364,
+    "targeted_individuals": 4432872,
+    "helped_individuals": 3200000,
+    "need_score": 46,
+    "top_3_unmet_groups": [
+      "Children - Female - Host Communities",
+      "Children - Male - Host Communities",
+      "Adult - Female - Host Communities"
+    ],
+    "cbpf_total_budget": 17999922.94,
+    "cbpf_project_count": 32,
+    "cbpf_budget_per_in_need": 2.265462342568572
+  },
+  "SDN": {
+    "country_name": "Sudan",
+    "iso3": "SDN",
+    "population": 50990034,
+    "people_in_need": 24786370,
+    "targeted_individuals": 14657114,
+    "helped_individuals": 14000000,
+    "need_score": 81,
+    "top_3_unmet_groups": [
+      "Male",
+      "Female",
+      "Children"
+    ],
+    "cbpf_total_budget": 180666178.76,
+    "cbpf_project_count": 101,
+    "cbpf_budget_per_in_need": 7.288932536712717
+  },
+  "SLV": {
+    "country_name": "El Salvador",
+    "iso3": "SLV",
+    "population": 6338881,
+    "people_in_need": 1119198,
+    "targeted_individuals": 506214,
+    "helped_individuals": 86500,
+    "need_score": 59,
+    "top_3_unmet_groups": [
+      "General Population"
+    ],
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
+    "cbpf_budget_per_in_need": null
+  },
+  "SOM": {
+    "country_name": "Somalia",
+    "iso3": "SOM",
+    "population": 18706922,
+    "people_in_need": 6869716,
+    "targeted_individuals": 5208415,
+    "helped_individuals": 2300000,
+    "need_score": 77,
+    "top_3_unmet_groups": [
+      "Children - Male - Host Communities",
+      "Children - Female - Host Communities"
+    ],
+    "cbpf_total_budget": 33337080.749999993,
+    "cbpf_project_count": 83,
+    "cbpf_budget_per_in_need": 4.852759670123189
+  },
+  "SSD": {
+    "country_name": "South Sudan",
+    "iso3": "SSD",
+    "population": 12440000,
+    "people_in_need": 8996986,
+    "targeted_individuals": 5944709,
+    "helped_individuals": 5000000,
+    "need_score": 87,
+    "top_3_unmet_groups": [
+      "General Population"
+    ],
+    "cbpf_total_budget": 38767034.66,
+    "cbpf_project_count": 68,
+    "cbpf_budget_per_in_need": 4.308891295373806
+  },
+  "SYR": {
+    "country_name": "Syria",
+    "iso3": "SYR",
+    "population": 23460000,
+    "people_in_need": 16661471,
+    "targeted_individuals": 10752647,
+    "helped_individuals": 4200000,
+    "need_score": 100,
+    "top_3_unmet_groups": [
+      "Palestine refugees",
+      "Adults (18-59)",
+      "Female"
+    ],
+    "cbpf_total_budget": 100812772.35,
+    "cbpf_project_count": 121,
+    "cbpf_budget_per_in_need": 6.050652571432618
+  },
+  "TCD": {
+    "country_name": "Chad",
+    "iso3": "TCD",
+    "population": 18893632,
+    "people_in_need": 6009715,
+    "targeted_individuals": 4588817,
+    "helped_individuals": 2200000,
+    "need_score": 67,
+    "top_3_unmet_groups": [
+      "General Population"
+    ],
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
+    "cbpf_budget_per_in_need": null
+  },
+  "UKR": {
+    "country_name": "Ukraine",
+    "iso3": "UKR",
+    "population": 33279979,
+    "people_in_need": 14622301,
+    "targeted_individuals": 8480502,
+    "helped_individuals": 8500000,
+    "need_score": 71,
+    "top_3_unmet_groups": [
+      "Host Communities",
+      "IDP",
+      "Returnees"
+    ],
+    "cbpf_total_budget": 163518376.36000004,
+    "cbpf_project_count": 71,
+    "cbpf_budget_per_in_need": 11.18280743639459
+  },
+  "VEN": {
+    "country_name": "Venezuela",
+    "iso3": "VEN",
+    "population": 27225775,
+    "people_in_need": 7581480,
+    "targeted_individuals": 5099997,
+    "helped_individuals": 2600000,
+    "need_score": 66,
+    "top_3_unmet_groups": [
+      "General Population"
+    ],
+    "cbpf_total_budget": 11963828.899999999,
+    "cbpf_project_count": 20,
+    "cbpf_budget_per_in_need": 1.5780334314672066
+  },
+  "YEM": {
+    "country_name": "Yemen",
+    "iso3": "YEM",
+    "population": 38680369,
+    "people_in_need": 18182658,
+    "targeted_individuals": 11233519,
+    "helped_individuals": 7800000,
+    "need_score": 87,
+    "top_3_unmet_groups": [
+      "Boys",
+      "Girls",
+      "Women"
+    ],
+    "cbpf_total_budget": 36084897.519999996,
+    "cbpf_project_count": 50,
+    "cbpf_budget_per_in_need": 1.9845776959562236
+  }
+}

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { GlobeState, CountryDataMap, ChatMessage, ChatHistory, CompositeScoreMap, ClusterInfo } from '@/types';
+import type { GlobeState, CountryDataMap, ChatMessage, ChatHistory, CompositeScoreMap, ClusterInfo, DataYear } from '@/types';
 
 const initialChatHistory: ChatHistory = {
   messages: [],
@@ -16,6 +16,7 @@ export const useStore = create<GlobeState>((set, get) => ({
   isLoading: true,
   chatHistories: {},
   allocatorOpen: false,
+  selectedYear: 2025,
 
   setCountries: (countries: CountryDataMap) => set({ countries, isLoading: false }),
 
@@ -75,4 +76,6 @@ export const useStore = create<GlobeState>((set, get) => ({
   },
 
   setAllocatorOpen: (open: boolean) => set({ allocatorOpen: open }),
+
+  setSelectedYear: (year: DataYear) => set({ selectedYear: year, isLoading: true }),
 }));

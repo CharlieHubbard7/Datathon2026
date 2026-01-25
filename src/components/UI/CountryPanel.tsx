@@ -6,7 +6,7 @@ import { MetricCard } from './MetricCard';
 import { ChatBot } from './ChatBot';
 
 export function CountryPanel() {
-  const { selectedCountry, countries, compositeScores, selectCountry } = useStore();
+  const { selectedCountry, countries, compositeScores, selectCountry, selectedYear } = useStore();
 
   const country = selectedCountry ? countries[selectedCountry] : null;
 
@@ -85,9 +85,9 @@ export function CountryPanel() {
                 subtext={`${helpedPercentage} of need`}
               />
               <MetricCard
-                label="CBPF Budget 2025"
-                value={formatCurrency(country.cbpf_total_budget_2025)}
-                subtext={country.cbpf_project_count_2025 ? `${country.cbpf_project_count_2025} projects` : undefined}
+                label={`CBPF Budget ${selectedYear}`}
+                value={formatCurrency(country.cbpf_total_budget)}
+                subtext={country.cbpf_project_count ? `${country.cbpf_project_count} projects` : undefined}
                 color="#22C55E"
               />
               <MetricCard
@@ -134,7 +134,7 @@ export function CountryPanel() {
         {/* Footer */}
         <div className="p-3 border-t border-gray-700 bg-gray-900/80">
           <p className="text-xs text-gray-500 text-center">
-            Data from 2025 Humanitarian Snapshot
+            Data from {selectedYear} Humanitarian Snapshot
           </p>
         </div>
       </div>

@@ -1,5 +1,9 @@
 /**
- * Preprocessing script to transform HPC/HNO 2025 CSV data into country-level JSON
+ * Preprocessing script to transform HPC/HNO CSV data into country-level JSON
+ * Supports both 2024 and 2025 data
+ *
+ * Usage: node preprocess-data.js [year]
+ *   year: 2024 or 2025 (default: 2025)
  *
  * Implements the UN Priority Score calculation:
  * - Need Intensity = In Need / Population
@@ -16,6 +20,14 @@
 
 const fs = require('fs');
 const path = require('path');
+
+// Get year from command line argument (default to 2025)
+const YEAR = parseInt(process.argv[2]) || 2025;
+if (YEAR !== 2024 && YEAR !== 2025) {
+  console.error('Invalid year. Use 2024 or 2025.');
+  process.exit(1);
+}
+console.log(`Processing data for year: ${YEAR}`);
 
 // Read and parse CSV
 function parseCSV(filePath) {
@@ -114,7 +126,7 @@ const cbpfNameToISO3 = {
 };
 
 // Process CBPF financial data
-function processCBPFData() {
+function processCBPFData(targetYear) {
   const cbpfPath = path.join(__dirname, '..', 'Data_ Country Based Pooled Funds (CBPF) - Projects.csv');
 
   // Check if CBPF file exists
@@ -123,7 +135,7 @@ function processCBPFData() {
     return {};
   }
 
-  console.log('\nProcessing CBPF financial data...');
+  console.log(`\nProcessing CBPF financial data for ${targetYear}...`);
   const content = fs.readFileSync(cbpfPath, 'utf-8');
   const lines = content.split('\n').filter(line => line.trim());
 
@@ -134,7 +146,7 @@ function processCBPFData() {
   console.log(`Parsed ${dataLines.length} CBPF project records`);
 
   const cbpfByCountry = {};
-  let count2025 = 0;
+  let countYear = 0;
 
   for (const line of dataLines) {
     const values = parseCSVLine(line);
@@ -146,11 +158,11 @@ function processCBPFData() {
       record[header.trim()] = values[idx]?.trim() || '';
     });
 
-    // Filter to 2025 only
+    // Filter to target year only
     const year = parseInt(record['AllocationYear']);
-    if (year !== 2025) continue;
+    if (year !== targetYear) continue;
 
-    count2025++;
+    countYear++;
 
     const pooledFundName = record['PooledFundName'];
     const budget = toNumber(record['Budget']);
@@ -166,7 +178,7 @@ function processCBPFData() {
     cbpfByCountry[iso3].projectCount += 1;
   }
 
-  console.log(`Found ${count2025} projects in 2025`);
+  console.log(`Found ${countYear} projects in ${targetYear}`);
   console.log(`CBPF data for ${Object.keys(cbpfByCountry).length} countries`);
 
   return cbpfByCountry;
@@ -174,8 +186,8 @@ function processCBPFData() {
 
 // Main processing function
 function processData() {
-  const csvPath = path.join(__dirname, '..', 'hpc_hno_2025.csv');
-  const outputPath = path.join(__dirname, '..', 'public', 'data', 'countries.json');
+  const csvPath = path.join(__dirname, '..', `hpc_hno_${YEAR}.csv`);
+  const outputPath = path.join(__dirname, '..', 'public', 'data', `countries-${YEAR}.json`);
 
   console.log('Reading CSV file...');
   const records = parseCSV(csvPath);
@@ -324,7 +336,7 @@ function processData() {
   };
 
   // Process CBPF financial data
-  const cbpfData = processCBPFData();
+  const cbpfData = processCBPFData(YEAR);
 
   // Build final output
   const output = {};
@@ -373,8 +385,8 @@ function processData() {
       helped_individuals: Math.round(country.reached),
       need_score: country.needScore,
       top_3_unmet_groups: topUnmetGroups,
-      cbpf_total_budget_2025: cbpfTotalBudget,
-      cbpf_project_count_2025: cbpfProjectCount,
+      cbpf_total_budget: cbpfTotalBudget,
+      cbpf_project_count: cbpfProjectCount,
       cbpf_budget_per_in_need: cbpfBudgetPerInNeed,
     };
   }

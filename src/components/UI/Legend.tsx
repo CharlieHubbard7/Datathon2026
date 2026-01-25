@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { NEED_COLORS, NEED_LABELS, NO_DATA_COLOR, type NeedLevel } from '@/lib/colors';
+import { useStore } from '@/store/useStore';
 
 const LEGEND_ITEMS: { level: NeedLevel; range: string }[] = [
   { level: 'extreme', range: '81-100' },
@@ -13,6 +14,7 @@ const LEGEND_ITEMS: { level: NeedLevel; range: string }[] = [
 
 export function Legend() {
   const [isExpanded, setIsExpanded] = useState(true);
+  const { selectedYear } = useStore();
 
   return (
     <div className="fixed bottom-6 left-6 z-20">
@@ -64,7 +66,7 @@ export function Legend() {
             {/* Data note */}
             <div className="mt-4 pt-3 border-t border-gray-700">
               <p className="text-xs text-gray-500">
-                2025 Humanitarian Snapshot
+                {selectedYear} Humanitarian Snapshot
               </p>
             </div>
           </div>

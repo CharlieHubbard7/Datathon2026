@@ -7,18 +7,19 @@ import { Legend } from '@/components/UI/Legend';
 import { Leaderboard } from '@/components/UI/Leaderboard';
 import { CountryPanel } from '@/components/UI/CountryPanel';
 import { FundingAllocator } from '@/components/UI/FundingAllocator';
+import { YearSelector } from '@/components/UI/YearSelector';
 import { useStore } from '@/store/useStore';
 import { computeCompositeScores } from '@/lib/allocator';
 import type { CountryDataMap } from '@/types';
 
 export default function Home() {
-  const { setCountries, setCompositeScores, isLoading, selectedCountry, setAllocatorOpen } = useStore();
+  const { setCountries, setCompositeScores, isLoading, selectedCountry, setAllocatorOpen, selectedYear } = useStore();
 
-  // Load country data on mount
+  // Load country data when year changes
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/data/countries.json');
+        const response = await fetch(`/data/countries-${selectedYear}.json`);
         const data: CountryDataMap = await response.json();
         setCountries(data);
 
@@ -31,7 +32,7 @@ export default function Home() {
     };
 
     loadData();
-  }, [setCountries, setCompositeScores]);
+  }, [setCountries, setCompositeScores, selectedYear]);
 
   return (
     <main className="relative w-screen h-screen overflow-hidden bg-black">
@@ -46,9 +47,12 @@ export default function Home() {
             <h1 className="text-xl md:text-2xl font-bold text-white">
               United Nations Global Humanitarian Need
             </h1>
-            <p className="text-sm text-gray-400 mt-1">
-              Based on CBPF Allocations & Global HPC 2025
-            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="text-sm text-gray-400">
+                Based on CBPF Allocations & Global HPC {selectedYear}
+              </p>
+              <YearSelector />
+            </div>
             {/* ML Funding Allocator Button */}
             {!isLoading && (
               <button
@@ -58,7 +62,7 @@ export default function Home() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
-                ML Allocator
+                Funding Allocator
               </button>
             )}
           </div>

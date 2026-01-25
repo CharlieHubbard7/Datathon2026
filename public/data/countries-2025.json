@@ -12,8 +12,8 @@
       "Adults",
       "Girls"
     ],
-    "cbpf_total_budget_2025": 72331254.48000003,
-    "cbpf_project_count_2025": 116,
+    "cbpf_total_budget": 72331254.48000003,
+    "cbpf_project_count": 116,
     "cbpf_budget_per_in_need": 3.16026391088394
   },
   "BFA": {
@@ -29,8 +29,8 @@
       "IDP",
       "Children - Female"
     ],
-    "cbpf_total_budget_2025": 8997558.19,
-    "cbpf_project_count_2025": 14,
+    "cbpf_total_budget": 8997558.19,
+    "cbpf_project_count": 14,
     "cbpf_budget_per_in_need": 1.521107577239137
   },
   "CAF": {
@@ -46,8 +46,8 @@
       "Adult - Male",
       "Children - Female"
     ],
-    "cbpf_total_budget_2025": 5300000.01,
-    "cbpf_project_count_2025": 11,
+    "cbpf_total_budget": 5300000.01,
+    "cbpf_project_count": 11,
     "cbpf_budget_per_in_need": 2.1718302997371675
   },
   "CMR": {
@@ -63,8 +63,8 @@
       "Female",
       "Male"
     ],
-    "cbpf_total_budget_2025": null,
-    "cbpf_project_count_2025": null,
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
     "cbpf_budget_per_in_need": null
   },
   "COD": {
@@ -80,8 +80,8 @@
       "Children",
       "Female"
     ],
-    "cbpf_total_budget_2025": 22996566.569999997,
-    "cbpf_project_count_2025": 50,
+    "cbpf_total_budget": 22996566.569999997,
+    "cbpf_project_count": 50,
     "cbpf_budget_per_in_need": 1.0826108096374467
   },
   "COL": {
@@ -97,8 +97,8 @@
       "Hombres",
       "Niñas"
     ],
-    "cbpf_total_budget_2025": null,
-    "cbpf_project_count_2025": null,
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
     "cbpf_budget_per_in_need": null
   },
   "GTM": {
@@ -112,8 +112,8 @@
     "top_3_unmet_groups": [
       "Personas en necesidad"
     ],
-    "cbpf_total_budget_2025": null,
-    "cbpf_project_count_2025": null,
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
     "cbpf_budget_per_in_need": null
   },
   "HND": {
@@ -129,8 +129,8 @@
       "Male",
       "Adult"
     ],
-    "cbpf_total_budget_2025": null,
-    "cbpf_project_count_2025": null,
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
     "cbpf_budget_per_in_need": null
   },
   "HTI": {
@@ -146,8 +146,8 @@
       "Other",
       "Adult - Female"
     ],
-    "cbpf_total_budget_2025": 500000,
-    "cbpf_project_count_2025": 1,
+    "cbpf_total_budget": 500000,
+    "cbpf_project_count": 1,
     "cbpf_budget_per_in_need": 0.08352187003462483
   },
   "MLI": {
@@ -163,8 +163,8 @@
       "Children_male",
       "Adult_female"
     ],
-    "cbpf_total_budget_2025": 8012337.2299999995,
-    "cbpf_project_count_2025": 15,
+    "cbpf_total_budget": 8012337.2299999995,
+    "cbpf_project_count": 15,
     "cbpf_budget_per_in_need": 1.2457894539623051
   },
   "MMR": {
@@ -180,8 +180,8 @@
       "Adult",
       "Female"
     ],
-    "cbpf_total_budget_2025": 34583932.44,
-    "cbpf_project_count_2025": 58,
+    "cbpf_total_budget": 34583932.44,
+    "cbpf_project_count": 58,
     "cbpf_budget_per_in_need": 17.67035026540832
   },
   "MOZ": {
@@ -195,8 +195,8 @@
     "top_3_unmet_groups": [
       "General Population"
     ],
-    "cbpf_total_budget_2025": 2287877.25,
-    "cbpf_project_count_2025": 12,
+    "cbpf_total_budget": 2287877.25,
+    "cbpf_project_count": 12,
     "cbpf_budget_per_in_need": 1.7531236853740415
   },
   "NER": {
@@ -210,8 +210,8 @@
     "top_3_unmet_groups": [
       "General Population"
     ],
-    "cbpf_total_budget_2025": 4998011.600000001,
-    "cbpf_project_count_2025": 9,
+    "cbpf_total_budget": 4998011.600000001,
+    "cbpf_project_count": 9,
     "cbpf_budget_per_in_need": 1.9369667976447966
   },
   "NGA": {
@@ -227,8 +227,8 @@
       "Children - Female - Host Communities",
       "Children - Male - Host Communities"
     ],
-    "cbpf_total_budget_2025": 16798024.849999998,
-    "cbpf_project_count_2025": 76,
+    "cbpf_total_budget": 16798024.849999998,
+    "cbpf_project_count": 76,
     "cbpf_budget_per_in_need": 2.1406807821234173
   },
   "SDN": {
@@ -244,8 +244,8 @@
       "Children",
       "Female"
     ],
-    "cbpf_total_budget_2025": 126476452.62,
-    "cbpf_project_count_2025": 89,
+    "cbpf_total_budget": 126476452.62,
+    "cbpf_project_count": 89,
     "cbpf_budget_per_in_need": 4.154837496554785
   },
   "SLV": {
@@ -261,8 +261,8 @@
       "Elderly - Male - IDP",
       "Children - Male - IDP"
     ],
-    "cbpf_total_budget_2025": null,
-    "cbpf_project_count_2025": null,
+    "cbpf_total_budget": null,
+    "cbpf_project_count": null,
     "cbpf_budget_per_in_need": null
   },
   "SOM": {
@@ -276,8 +276,8 @@
     "top_3_unmet_groups": [
       "General Population"
     ],
-    "cbpf_total_budget_2025": 31051486.919999998,
-    "cbpf_project_count_2025": 74,
+    "cbpf_total_budget": 31051486.919999998,
+    "cbpf_project_count": 74,
     "cbpf_budget_per_in_need": 5.192781245876702
   },
   "SSD": {
@@ -293,8 +293,8 @@
       "Children - Female",
       "Adult - Female"
     ],
-    "cbpf_total_budget_2025": 30012394.18,
-    "cbpf_project_count_2025": 68,
+    "cbpf_total_budget": 30012394.18,
+    "cbpf_project_count": 68,
     "cbpf_budget_per_in_need": 3.230582334634505
   },
   "TCD": {
@@ -308,8 +308,8 @@
     "top_3_unmet_groups": [
       "General Population"
     ],
-    "cbpf_total_budget_2025": 9816291.93,
-    "cbpf_project_count_2025": 14,
+    "cbpf_total_budget": 9816291.93,
+    "cbpf_project_count": 14,
     "cbpf_budget_per_in_need": 1.3925347165773945
   },
   "UKR": {
@@ -324,8 +324,8 @@
       "Non-displaced war-affected",
       "IDP"
     ],
-    "cbpf_total_budget_2025": 193873694.62000012,
-    "cbpf_project_count_2025": 89,
+    "cbpf_total_budget": 193873694.62000012,
+    "cbpf_project_count": 89,
     "cbpf_budget_per_in_need": 15.254995577103427
   },
   "VEN": {
@@ -339,8 +339,8 @@
     "top_3_unmet_groups": [
       "General Population"
     ],
-    "cbpf_total_budget_2025": 8315515.98,
-    "cbpf_project_count_2025": 19,
+    "cbpf_total_budget": 8315515.98,
+    "cbpf_project_count": 19,
     "cbpf_budget_per_in_need": 1.046803761965427
   },
   "YEM": {
@@ -356,8 +356,8 @@
       "Elderly",
       "Male"
     ],
-    "cbpf_total_budget_2025": 22492089.25,
-    "cbpf_project_count_2025": 41,
+    "cbpf_total_budget": 22492089.25,
+    "cbpf_project_count": 41,
     "cbpf_budget_per_in_need": 1.1510665029973823
   }
 }

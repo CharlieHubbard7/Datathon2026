@@ -1,3 +1,5 @@
+export type DataYear = 2024 | 2025;
+
 export interface CountryData {
   country_name: string;
   iso3: string;
@@ -8,8 +10,8 @@ export interface CountryData {
   need_score: number;
   top_3_unmet_groups: string[];
   // CBPF financial metrics (nullable for countries without CBPF data)
-  cbpf_total_budget_2025: number | null;
-  cbpf_project_count_2025: number | null;
+  cbpf_total_budget: number | null;
+  cbpf_project_count: number | null;
   cbpf_budget_per_in_need: number | null;
 }
 
@@ -76,6 +78,7 @@ export interface GlobeState {
   isLoading: boolean;
   chatHistories: ChatHistoryMap;
   allocatorOpen: boolean;
+  selectedYear: DataYear;
 
   setCountries: (countries: CountryDataMap) => void;
   setCompositeScores: (scores: CompositeScoreMap, clusters: ClusterInfo[]) => void;
@@ -88,4 +91,5 @@ export interface GlobeState {
   setSummary: (iso3: string, summary: string) => void;
   getChatHistory: (iso3: string) => ChatHistory;
   setAllocatorOpen: (open: boolean) => void;
+  setSelectedYear: (year: DataYear) => void;
 }
