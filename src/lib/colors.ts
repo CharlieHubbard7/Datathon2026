@@ -3,7 +3,7 @@ import type { NeedLevel } from '@/types';
 export type { NeedLevel };
 
 export const NEED_COLORS = {
-  none: '#808080',     // Grey - no data
+  none: '#A0A0A0',     // Grey - no data
   low: '#FFFACD',      // Pale yellow (1-20)
   moderate: '#FFD700', // Golden yellow (21-40)
   high: '#FFA500',     // Orange (41-60)

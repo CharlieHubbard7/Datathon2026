@@ -29,9 +29,9 @@ export function Earth({
 
     // Ocean base
     const oceanGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    oceanGradient.addColorStop(0, '#1a3a5c');
-    oceanGradient.addColorStop(0.5, '#0d2137');
-    oceanGradient.addColorStop(1, '#1a3a5c');
+    oceanGradient.addColorStop(0, '#000033');
+    oceanGradient.addColorStop(0.5, '#000033');
+    oceanGradient.addColorStop(1, '#000033');
     ctx.fillStyle = oceanGradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 

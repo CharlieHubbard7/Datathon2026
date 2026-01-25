@@ -180,7 +180,7 @@ function NeutralCountry({ feature }: { feature: GeoJSONFeature }) {
       {geometries.map((geo, idx) => (
         <mesh key={`neutral-fill-${idx}`} geometry={geo}>
           <meshBasicMaterial
-            color="#1a2a3a"
+            color="#79d"
             transparent
             opacity={0.7}
             side={THREE.DoubleSide}
