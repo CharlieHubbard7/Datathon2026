@@ -11,7 +11,10 @@
       "Children",
       "Adults",
       "Girls"
-    ]
+    ],
+    "cbpf_total_budget_2025": 72331254.48000003,
+    "cbpf_project_count_2025": 116,
+    "cbpf_budget_per_in_need": 3.16026391088394
   },
   "BFA": {
     "country_name": "Burkina Faso",
@@ -25,7 +28,10 @@
       "Host Communities",
       "IDP",
       "Children - Female"
-    ]
+    ],
+    "cbpf_total_budget_2025": 8997558.19,
+    "cbpf_project_count_2025": 14,
+    "cbpf_budget_per_in_need": 1.521107577239137
   },
   "CAF": {
     "country_name": "Central African Republic",
@@ -39,7 +45,10 @@
       "Adult - Female",
       "Adult - Male",
       "Children - Female"
-    ]
+    ],
+    "cbpf_total_budget_2025": 5300000.01,
+    "cbpf_project_count_2025": 11,
+    "cbpf_budget_per_in_need": 2.1718302997371675
   },
   "CMR": {
     "country_name": "Cameroon",
@@ -53,7 +62,10 @@
       "IDP",
       "Female",
       "Male"
-    ]
+    ],
+    "cbpf_total_budget_2025": null,
+    "cbpf_project_count_2025": null,
+    "cbpf_budget_per_in_need": null
   },
   "COD": {
     "country_name": "Democratic Republic of the Congo",
@@ -67,7 +79,10 @@
       "Adult",
       "Children",
       "Female"
-    ]
+    ],
+    "cbpf_total_budget_2025": 22996566.569999997,
+    "cbpf_project_count_2025": 50,
+    "cbpf_budget_per_in_need": 1.0826108096374467
   },
   "COL": {
     "country_name": "Colombia",
@@ -81,7 +96,10 @@
       "Mujeres",
       "Hombres",
       "Niñas"
-    ]
+    ],
+    "cbpf_total_budget_2025": null,
+    "cbpf_project_count_2025": null,
+    "cbpf_budget_per_in_need": null
   },
   "GTM": {
     "country_name": "Guatemala",
@@ -93,7 +111,10 @@
     "need_score": 58,
     "top_3_unmet_groups": [
       "Personas en necesidad"
-    ]
+    ],
+    "cbpf_total_budget_2025": null,
+    "cbpf_project_count_2025": null,
+    "cbpf_budget_per_in_need": null
   },
   "HND": {
     "country_name": "Honduras",
@@ -107,7 +128,10 @@
       "Host Communities",
       "Male",
       "Adult"
-    ]
+    ],
+    "cbpf_total_budget_2025": null,
+    "cbpf_project_count_2025": null,
+    "cbpf_budget_per_in_need": null
   },
   "HTI": {
     "country_name": "Haiti",
@@ -121,7 +145,10 @@
       "Host Communities",
       "Other",
       "Adult - Female"
-    ]
+    ],
+    "cbpf_total_budget_2025": 500000,
+    "cbpf_project_count_2025": 1,
+    "cbpf_budget_per_in_need": 0.08352187003462483
   },
   "MLI": {
     "country_name": "Mali",
@@ -135,7 +162,10 @@
       "Children_female",
       "Children_male",
       "Adult_female"
-    ]
+    ],
+    "cbpf_total_budget_2025": 8012337.2299999995,
+    "cbpf_project_count_2025": 15,
+    "cbpf_budget_per_in_need": 1.2457894539623051
   },
   "MMR": {
     "country_name": "Myanmar",
@@ -149,7 +179,10 @@
       "Host Communities",
       "Adult",
       "Female"
-    ]
+    ],
+    "cbpf_total_budget_2025": 34583932.44,
+    "cbpf_project_count_2025": 58,
+    "cbpf_budget_per_in_need": 17.67035026540832
   },
   "MOZ": {
     "country_name": "Mozambique",
@@ -161,7 +194,10 @@
     "need_score": 35,
     "top_3_unmet_groups": [
       "General Population"
-    ]
+    ],
+    "cbpf_total_budget_2025": 2287877.25,
+    "cbpf_project_count_2025": 12,
+    "cbpf_budget_per_in_need": 1.7531236853740415
   },
   "NER": {
     "country_name": "Niger",
@@ -173,7 +209,10 @@
     "need_score": 48,
     "top_3_unmet_groups": [
       "General Population"
-    ]
+    ],
+    "cbpf_total_budget_2025": 4998011.600000001,
+    "cbpf_project_count_2025": 9,
+    "cbpf_budget_per_in_need": 1.9369667976447966
   },
   "NGA": {
     "country_name": "Nigeria",
@@ -187,7 +226,10 @@
       "Adult - Female - Host Communities",
       "Children - Female - Host Communities",
       "Children - Male - Host Communities"
-    ]
+    ],
+    "cbpf_total_budget_2025": 16798024.849999998,
+    "cbpf_project_count_2025": 76,
+    "cbpf_budget_per_in_need": 2.1406807821234173
   },
   "SDN": {
     "country_name": "Sudan",
@@ -201,7 +243,10 @@
       "Non-hosting population",
       "Children",
       "Female"
-    ]
+    ],
+    "cbpf_total_budget_2025": 126476452.62,
+    "cbpf_project_count_2025": 89,
+    "cbpf_budget_per_in_need": 4.154837496554785
   },
   "SLV": {
     "country_name": "El Salvador",
@@ -215,7 +260,10 @@
       "Elderly - Female - IDP",
       "Elderly - Male - IDP",
       "Children - Male - IDP"
-    ]
+    ],
+    "cbpf_total_budget_2025": null,
+    "cbpf_project_count_2025": null,
+    "cbpf_budget_per_in_need": null
   },
   "SOM": {
     "country_name": "Somalia",
@@ -227,7 +275,10 @@
     "need_score": 67,
     "top_3_unmet_groups": [
       "General Population"
-    ]
+    ],
+    "cbpf_total_budget_2025": 31051486.919999998,
+    "cbpf_project_count_2025": 74,
+    "cbpf_budget_per_in_need": 5.192781245876702
   },
   "SSD": {
     "country_name": "South Sudan",
@@ -241,7 +292,10 @@
       "Children - Male",
       "Children - Female",
       "Adult - Female"
-    ]
+    ],
+    "cbpf_total_budget_2025": 30012394.18,
+    "cbpf_project_count_2025": 68,
+    "cbpf_budget_per_in_need": 3.230582334634505
   },
   "TCD": {
     "country_name": "Chad",
@@ -253,7 +307,10 @@
     "need_score": 84,
     "top_3_unmet_groups": [
       "General Population"
-    ]
+    ],
+    "cbpf_total_budget_2025": 9816291.93,
+    "cbpf_project_count_2025": 14,
+    "cbpf_budget_per_in_need": 1.3925347165773945
   },
   "UKR": {
     "country_name": "Ukraine",
@@ -266,7 +323,10 @@
     "top_3_unmet_groups": [
       "Non-displaced war-affected",
       "IDP"
-    ]
+    ],
+    "cbpf_total_budget_2025": 193873694.62000012,
+    "cbpf_project_count_2025": 89,
+    "cbpf_budget_per_in_need": 15.254995577103427
   },
   "VEN": {
     "country_name": "Venezuela",
@@ -278,7 +338,10 @@
     "need_score": 82,
     "top_3_unmet_groups": [
       "General Population"
-    ]
+    ],
+    "cbpf_total_budget_2025": 8315515.98,
+    "cbpf_project_count_2025": 19,
+    "cbpf_budget_per_in_need": 1.046803761965427
   },
   "YEM": {
     "country_name": "Yemen",
@@ -292,6 +355,9 @@
       "Children",
       "Elderly",
       "Male"
-    ]
+    ],
+    "cbpf_total_budget_2025": 22492089.25,
+    "cbpf_project_count_2025": 41,
+    "cbpf_budget_per_in_need": 1.1510665029973823
   }
 }

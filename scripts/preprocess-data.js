@@ -83,6 +83,95 @@ function percentileRank(values) {
   });
 }
 
+// CBPF Country Name to ISO3 mapping
+const cbpfNameToISO3 = {
+  'Afghanistan': 'AFG',
+  'Burkina Faso': 'BFA',
+  'CAR': 'CAF',
+  'Chad (RhPF)': 'TCD',
+  'Chad': 'TCD',
+  'DRC': 'COD',
+  'Ethiopia': 'ETH',
+  'Haiti (RhPF)': 'HTI',
+  'Haiti': 'HTI',
+  'Lebanon': 'LBN',
+  'Mali': 'MLI',
+  'Mozambique (RhPF)': 'MOZ',
+  'Mozambique': 'MOZ',
+  'Myanmar': 'MMR',
+  'Niger': 'NER',
+  'Nigeria': 'NGA',
+  'oPt': 'PSE',
+  'Pakistan': 'PAK',
+  'Somalia': 'SOM',
+  'South Sudan': 'SSD',
+  'Sudan': 'SDN',
+  'Syria': 'SYR',
+  'Syria Cross border': 'SYR',
+  'Ukraine': 'UKR',
+  'Venezuela': 'VEN',
+  'Yemen': 'YEM',
+};
+
+// Process CBPF financial data
+function processCBPFData() {
+  const cbpfPath = path.join(__dirname, '..', 'Data_ Country Based Pooled Funds (CBPF) - Projects.csv');
+
+  // Check if CBPF file exists
+  if (!fs.existsSync(cbpfPath)) {
+    console.log('CBPF CSV not found, skipping financial data...');
+    return {};
+  }
+
+  console.log('\nProcessing CBPF financial data...');
+  const content = fs.readFileSync(cbpfPath, 'utf-8');
+  const lines = content.split('\n').filter(line => line.trim());
+
+  // First line is headers
+  const headers = parseCSVLine(lines[0]);
+  const dataLines = lines.slice(1);
+
+  console.log(`Parsed ${dataLines.length} CBPF project records`);
+
+  const cbpfByCountry = {};
+  let count2025 = 0;
+
+  for (const line of dataLines) {
+    const values = parseCSVLine(line);
+    if (values.length < headers.length - 1) continue;
+
+    // Build record from headers
+    const record = {};
+    headers.forEach((header, idx) => {
+      record[header.trim()] = values[idx]?.trim() || '';
+    });
+
+    // Filter to 2025 only
+    const year = parseInt(record['AllocationYear']);
+    if (year !== 2025) continue;
+
+    count2025++;
+
+    const pooledFundName = record['PooledFundName'];
+    const budget = toNumber(record['Budget']);
+
+    const iso3 = cbpfNameToISO3[pooledFundName];
+    if (!iso3) continue; // Skip unmapped countries
+
+    if (!cbpfByCountry[iso3]) {
+      cbpfByCountry[iso3] = { totalBudget: 0, projectCount: 0 };
+    }
+
+    cbpfByCountry[iso3].totalBudget += budget || 0;
+    cbpfByCountry[iso3].projectCount += 1;
+  }
+
+  console.log(`Found ${count2025} projects in 2025`);
+  console.log(`CBPF data for ${Object.keys(cbpfByCountry).length} countries`);
+
+  return cbpfByCountry;
+}
+
 // Main processing function
 function processData() {
   const csvPath = path.join(__dirname, '..', 'hpc_hno_2025.csv');
@@ -234,6 +323,9 @@ function processData() {
     'JOR': 'Jordan',
   };
 
+  // Process CBPF financial data
+  const cbpfData = processCBPFData();
+
   // Build final output
   const output = {};
 
@@ -264,6 +356,14 @@ function processData() {
       topUnmetGroups.push('General Population');
     }
 
+    // Get CBPF data for this country (null if not available)
+    const cbpf = cbpfData[iso3];
+    const cbpfTotalBudget = cbpf ? cbpf.totalBudget : null;
+    const cbpfProjectCount = cbpf ? cbpf.projectCount : null;
+    const cbpfBudgetPerInNeed = cbpf && country.inNeed > 0
+      ? cbpf.totalBudget / country.inNeed
+      : null;
+
     output[iso3] = {
       country_name: countryNames[iso3] || iso3,
       iso3: iso3,
@@ -273,6 +373,9 @@ function processData() {
       helped_individuals: Math.round(country.reached),
       need_score: country.needScore,
       top_3_unmet_groups: topUnmetGroups,
+      cbpf_total_budget_2025: cbpfTotalBudget,
+      cbpf_project_count_2025: cbpfProjectCount,
+      cbpf_budget_per_in_need: cbpfBudgetPerInNeed,
     };
   }
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useStore } from '@/store/useStore';
-import { getScoreColor, getNeedLevel, NEED_LABELS, formatPercentage } from '@/lib/colors';
+import { getScoreColor, getNeedLevel, NEED_LABELS, formatPercentage, formatCurrency, formatBudgetPerPerson } from '@/lib/colors';
 import { MetricCard } from './MetricCard';
 import { ChatBot } from './ChatBot';
 
@@ -57,7 +57,7 @@ export function CountryPanel() {
           {/* Key Metrics */}
           <div className="p-4 border-b border-gray-700">
             <h3 className="text-sm font-semibold text-gray-300 mb-3">Key Metrics</h3>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               <MetricCard
                 label="Population"
                 value={country.population}
@@ -76,6 +76,18 @@ export function CountryPanel() {
                 label="Reached"
                 value={country.helped_individuals}
                 subtext={`${helpedPercentage} of need`}
+              />
+              <MetricCard
+                label="CBPF Budget 2025"
+                value={formatCurrency(country.cbpf_total_budget_2025)}
+                subtext={country.cbpf_project_count_2025 ? `${country.cbpf_project_count_2025} projects` : undefined}
+                color="#22C55E"
+              />
+              <MetricCard
+                label="Budget per Person"
+                value={formatBudgetPerPerson(country.cbpf_budget_per_in_need)}
+                subtext="Per person in need"
+                color="#22C55E"
               />
             </div>
           </div>

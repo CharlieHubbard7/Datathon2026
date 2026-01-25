@@ -85,7 +85,7 @@ export function ChatBot({ country }: ChatBotProps) {
   };
 
   return (
-    <div className="flex flex-col h-80">
+    <div className="flex flex-col h-60">
       {/* Messages */}
       <div className="flex-1 overflow-y-auto custom-scrollbar space-y-3 mb-3">
         {chatHistory.messages.length === 0 ? (

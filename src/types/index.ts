@@ -7,6 +7,10 @@ export interface CountryData {
   helped_individuals: number;
   need_score: number;
   top_3_unmet_groups: string[];
+  // CBPF financial metrics (nullable for countries without CBPF data)
+  cbpf_total_budget_2025: number | null;
+  cbpf_project_count_2025: number | null;
+  cbpf_budget_per_in_need: number | null;
 }
 
 export type CountryDataMap = Record<string, CountryData>;
