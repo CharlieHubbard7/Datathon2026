@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useMemo, useCallback, useEffect, useState } from 'react';
-import { ThreeEvent } from '@react-three/fiber';
+import { ThreeEvent, useThree } from '@react-three/fiber';
 import { Line } from '@react-three/drei';
 import * as THREE from 'three';
 import { useStore } from '@/store/useStore';
@@ -12,6 +12,15 @@ import {
   createPolygonGeometry,
   createSphericalLinePoints,
 } from '@/lib/geo';
+
+// Helper to check if a point on the globe is facing the camera
+function isFacingCamera(point: THREE.Vector3, cameraPosition: THREE.Vector3): boolean {
+  // Normalize both vectors (point is on globe surface, camera is at some distance)
+  const pointDir = point.clone().normalize();
+  const cameraDir = cameraPosition.clone().normalize();
+  // If dot product is positive, the point is on the hemisphere facing the camera
+  return pointDir.dot(cameraDir) > 0;
+}
 
 const COUNTRY_RADIUS = 2.005; // Slightly above earth surface
 const BORDER_RADIUS = 2.008; // Borders above countries
@@ -36,6 +45,7 @@ function CountryMesh({
   const groupRef = useRef<THREE.Group>(null);
   const [geometries, setGeometries] = useState<THREE.BufferGeometry[]>([]);
   const [borderPoints, setBorderPoints] = useState<[number, number, number][][]>([]);
+  const { camera } = useThree();
 
   // Generate geometries from GeoJSON
   useEffect(() => {
@@ -74,10 +84,14 @@ function CountryMesh({
   const handlePointerOver = useCallback(
     (e: ThreeEvent<PointerEvent>) => {
       e.stopPropagation();
+      // Only trigger hover if the country is on the front of the globe (facing camera)
+      if (e.point && !isFacingCamera(e.point, camera.position)) {
+        return;
+      }
       onHover(true);
       document.body.style.cursor = 'pointer';
     },
-    [onHover]
+    [onHover, camera]
   );
 
   const handlePointerOut = useCallback(() => {
@@ -88,9 +102,13 @@ function CountryMesh({
   const handleClick = useCallback(
     (e: ThreeEvent<MouseEvent>) => {
       e.stopPropagation();
+      // Only trigger click if the country is on the front of the globe (facing camera)
+      if (e.point && !isFacingCamera(e.point, camera.position)) {
+        return;
+      }
       onClick();
     },
-    [onClick]
+    [onClick, camera]
   );
 
   // Determine colors
