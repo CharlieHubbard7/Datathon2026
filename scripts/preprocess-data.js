@@ -271,7 +271,6 @@ function processData() {
       people_in_need: Math.round(country.inNeed),
       targeted_individuals: Math.round(country.targeted),
       helped_individuals: Math.round(country.reached),
-      inform_severity: Math.round(country.needIntensity * 50 * 10) / 10, // Scale to ~0-5 range
       need_score: country.needScore,
       top_3_unmet_groups: topUnmetGroups,
     };

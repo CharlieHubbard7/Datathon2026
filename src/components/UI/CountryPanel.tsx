@@ -78,12 +78,6 @@ export function CountryPanel() {
                 subtext={`${helpedPercentage} of need`}
               />
             </div>
-            <div className="mt-3 bg-gray-800/50 rounded-lg p-3">
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-400">INFORM Severity</span>
-                <span className="font-semibold text-white">{country.inform_severity.toFixed(1)} / 5.0</span>
-              </div>
-            </div>
           </div>
 
           {/* Top 3 Unmet Groups */}

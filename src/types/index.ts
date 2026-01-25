@@ -5,7 +5,6 @@ export interface CountryData {
   people_in_need: number;
   targeted_individuals: number;
   helped_individuals: number;
-  inform_severity: number;
   need_score: number;
   top_3_unmet_groups: string[];
 }

@@ -6,7 +6,6 @@
     "people_in_need": 22887726,
     "targeted_individuals": 16790412,
     "helped_individuals": 18100000,
-    "inform_severity": 24.9,
     "need_score": 68,
     "top_3_unmet_groups": [
       "Children",
@@ -21,7 +20,6 @@
     "people_in_need": 5915136,
     "targeted_individuals": 3672506,
     "helped_individuals": 1800000,
-    "inform_severity": 12.6,
     "need_score": 70,
     "top_3_unmet_groups": [
       "Host Communities",
@@ -36,7 +34,6 @@
     "people_in_need": 2440338,
     "targeted_individuals": 1772631,
     "helped_individuals": 720000,
-    "inform_severity": 23,
     "need_score": 81,
     "top_3_unmet_groups": [
       "Adult - Female",
@@ -51,7 +48,6 @@
     "people_in_need": 3322058,
     "targeted_individuals": 2100146,
     "helped_individuals": 800000,
-    "inform_severity": 5.6,
     "need_score": 55,
     "top_3_unmet_groups": [
       "IDP",
@@ -66,7 +62,6 @@
     "people_in_need": 21241767,
     "targeted_individuals": 10988449,
     "helped_individuals": 9100000,
-    "inform_severity": 9,
     "need_score": 66,
     "top_3_unmet_groups": [
       "Adult",
@@ -81,7 +76,6 @@
     "people_in_need": 9053352,
     "targeted_individuals": 1991880,
     "helped_individuals": 890000,
-    "inform_severity": 8.5,
     "need_score": 76,
     "top_3_unmet_groups": [
       "Mujeres",
@@ -96,7 +90,6 @@
     "people_in_need": 2163953,
     "targeted_individuals": 1000000,
     "helped_individuals": 275000,
-    "inform_severity": 5.9,
     "need_score": 58,
     "top_3_unmet_groups": [
       "Personas en necesidad"
@@ -109,7 +102,6 @@
     "people_in_need": 1640224,
     "targeted_individuals": 796974,
     "helped_individuals": 132000,
-    "inform_severity": 7.6,
     "need_score": 64,
     "top_3_unmet_groups": [
       "Host Communities",
@@ -124,7 +116,6 @@
     "people_in_need": 5986456,
     "targeted_individuals": 3941924,
     "helped_individuals": 2200000,
-    "inform_severity": 25.2,
     "need_score": 84,
     "top_3_unmet_groups": [
       "Host Communities",
@@ -139,7 +130,6 @@
     "people_in_need": 6431534,
     "targeted_individuals": 4709012,
     "helped_individuals": 1800000,
-    "inform_severity": 13.9,
     "need_score": 75,
     "top_3_unmet_groups": [
       "Children_female",
@@ -154,7 +144,6 @@
     "people_in_need": 1957173,
     "targeted_individuals": 1132893,
     "helped_individuals": 1000000,
-    "inform_severity": 1.7,
     "need_score": 38,
     "top_3_unmet_groups": [
       "Host Communities",
@@ -169,7 +158,6 @@
     "people_in_need": 1305029,
     "targeted_individuals": 1097096,
     "helped_individuals": 1105000,
-    "inform_severity": 1.9,
     "need_score": 35,
     "top_3_unmet_groups": [
       "General Population"
@@ -182,7 +170,6 @@
     "people_in_need": 2580329,
     "targeted_individuals": 2132111,
     "helped_individuals": 844290,
-    "inform_severity": 4.7,
     "need_score": 48,
     "top_3_unmet_groups": [
       "General Population"
@@ -195,7 +182,6 @@
     "people_in_need": 7847048,
     "targeted_individuals": 3584107,
     "helped_individuals": 1600000,
-    "inform_severity": 1.7,
     "need_score": 55,
     "top_3_unmet_groups": [
       "Adult - Female - Host Communities",
@@ -210,7 +196,6 @@
     "people_in_need": 30440770,
     "targeted_individuals": 20934770,
     "helped_individuals": 20900000,
-    "inform_severity": 32.5,
     "need_score": 85,
     "top_3_unmet_groups": [
       "Non-hosting population",
@@ -225,7 +210,6 @@
     "people_in_need": 818700,
     "targeted_individuals": 407500,
     "helped_individuals": 41000,
-    "inform_severity": 6.4,
     "need_score": 60,
     "top_3_unmet_groups": [
       "Elderly - Female - IDP",
@@ -240,7 +224,6 @@
     "people_in_need": 5979741,
     "targeted_individuals": 4571657,
     "helped_individuals": 2700000,
-    "inform_severity": 15.5,
     "need_score": 67,
     "top_3_unmet_groups": [
       "General Population"
@@ -253,7 +236,6 @@
     "people_in_need": 9290088,
     "targeted_individuals": 5386982,
     "helped_individuals": 3900000,
-    "inform_severity": 34.6,
     "need_score": 92,
     "top_3_unmet_groups": [
       "Children - Male",
@@ -268,7 +250,6 @@
     "people_in_need": 7049226,
     "targeted_individuals": 5475571,
     "helped_individuals": 2000000,
-    "inform_severity": 18.2,
     "need_score": 84,
     "top_3_unmet_groups": [
       "General Population"
@@ -281,7 +262,6 @@
     "people_in_need": 12708866,
     "targeted_individuals": 6016366,
     "helped_individuals": 4800000,
-    "inform_severity": 17.8,
     "need_score": 82,
     "top_3_unmet_groups": [
       "Non-displaced war-affected",
@@ -295,7 +275,6 @@
     "people_in_need": 7943720,
     "targeted_individuals": 5125664,
     "helped_individuals": 2000000,
-    "inform_severity": 14.6,
     "need_score": 82,
     "top_3_unmet_groups": [
       "General Population"
@@ -308,7 +287,6 @@
     "people_in_need": 19540217,
     "targeted_individuals": 10527030,
     "helped_individuals": 5300000,
-    "inform_severity": 28,
     "need_score": 100,
     "top_3_unmet_groups": [
       "Children",

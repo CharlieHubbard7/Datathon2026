@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Globe } from '@/components/Globe/Globe';
 import { Tooltip } from '@/components/UI/Tooltip';
 import { Legend } from '@/components/UI/Legend';
+import { Leaderboard } from '@/components/UI/Leaderboard';
 import { CountryPanel } from '@/components/UI/CountryPanel';
 import { useStore } from '@/store/useStore';
 import type { CountryDataMap } from '@/types';
@@ -64,6 +65,9 @@ export default function Home() {
 
         {/* Legend */}
         <Legend />
+
+        {/* Leaderboard */}
+        <Leaderboard />
 
         {/* Tooltip */}
         <Tooltip />
