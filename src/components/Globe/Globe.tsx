@@ -119,7 +119,7 @@ function Scene() {
 
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 0, 6]} fov={45} />
+      <PerspectiveCamera makeDefault position={[5.5, 0.5, -2.5]} fov={45} />
       <CameraController />
       <AutoRotate />
 

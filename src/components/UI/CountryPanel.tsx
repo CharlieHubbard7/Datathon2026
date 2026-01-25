@@ -6,14 +6,19 @@ import { MetricCard } from './MetricCard';
 import { ChatBot } from './ChatBot';
 
 export function CountryPanel() {
-  const { selectedCountry, countries, selectCountry } = useStore();
+  const { selectedCountry, countries, compositeScores, selectCountry } = useStore();
 
   const country = selectedCountry ? countries[selectedCountry] : null;
 
   if (!country) return null;
 
-  const scoreColor = getScoreColor(country.need_score);
-  const needLevel = getNeedLevel(country.need_score);
+  // Get composite score data (ML-adjusted)
+  const scoreData = compositeScores[country.iso3];
+  const compositeScore = scoreData?.compositeScore ?? country.need_score;
+  const clusterName = scoreData?.clusterName ?? 'N/A';
+
+  const scoreColor = getScoreColor(compositeScore);
+  const needLevel = getNeedLevel(compositeScore);
   const helpedPercentage = formatPercentage(country.helped_individuals, country.people_in_need);
 
   return (
@@ -33,12 +38,14 @@ export function CountryPanel() {
               <div
                 className="w-10 h-10 rounded-lg flex items-center justify-center text-xl font-bold"
                 style={{ backgroundColor: scoreColor }}
+                title={`Original: ${country.need_score}`}
               >
-                {country.need_score}
+                {compositeScore}
               </div>
               <div>
                 <h2 className="text-xl font-bold text-white">{country.country_name}</h2>
                 <p className="text-sm text-gray-400">{NEED_LABELS[needLevel]}</p>
+                <p className="text-xs text-gray-500">{clusterName}</p>
               </div>
             </div>
             <button

@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { GlobeState, CountryDataMap, ChatMessage, ChatHistory } from '@/types';
+import type { GlobeState, CountryDataMap, ChatMessage, ChatHistory, CompositeScoreMap, ClusterInfo } from '@/types';
 
 const initialChatHistory: ChatHistory = {
   messages: [],
@@ -8,6 +8,8 @@ const initialChatHistory: ChatHistory = {
 
 export const useStore = create<GlobeState>((set, get) => ({
   countries: {},
+  compositeScores: {},
+  clusters: [],
   selectedCountry: null,
   hoveredCountry: null,
   heatmapEnabled: true,
@@ -16,6 +18,20 @@ export const useStore = create<GlobeState>((set, get) => ({
   allocatorOpen: false,
 
   setCountries: (countries: CountryDataMap) => set({ countries, isLoading: false }),
+
+  setCompositeScores: (scores: CompositeScoreMap, clusters: ClusterInfo[]) =>
+    set({ compositeScores: scores, clusters }),
+
+  getCompositeScore: (iso3: string): number => {
+    const state = get();
+    const scoreData = state.compositeScores[iso3];
+    if (scoreData) {
+      return scoreData.compositeScore;
+    }
+    // Fallback to original need score if composite not computed yet
+    const country = state.countries[iso3];
+    return country?.need_score ?? 0;
+  },
 
   selectCountry: (iso3: string | null) => set({ selectedCountry: iso3 }),
 

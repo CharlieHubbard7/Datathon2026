@@ -3,7 +3,7 @@ import type { NeedLevel } from '@/types';
 export type { NeedLevel };
 
 export const NEED_COLORS = {
-  none: '#A0A0A0',     // Grey - no data
+  none: '#FFFACD',     // Pale yellow - Low Need (0)
   low: '#FFFACD',      // Pale yellow (1-20)
   moderate: '#FFD700', // Golden yellow (21-40)
   high: '#FFA500',     // Orange (41-60)
@@ -11,8 +11,11 @@ export const NEED_COLORS = {
   extreme: '#DC143C',  // Deep red (81-100)
 } as const;
 
+// Color for countries without humanitarian data (matches neutral country fill)
+export const NO_DATA_COLOR = '#7799DD';
+
 export const NEED_LABELS: Record<NeedLevel, string> = {
-  none: 'No Data',
+  none: 'Low Need (0)',
   low: 'Low Need (1-20)',
   moderate: 'Moderate Need (21-40)',
   high: 'High Need (41-60)',
@@ -21,7 +24,7 @@ export const NEED_LABELS: Record<NeedLevel, string> = {
 };
 
 export function getNeedLevel(score: number): NeedLevel {
-  if (score === 0) return 'none';
+  if (score <= 0) return 'none';
   if (score <= 20) return 'low';
   if (score <= 40) return 'moderate';
   if (score <= 60) return 'high';

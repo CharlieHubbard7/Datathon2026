@@ -195,7 +195,7 @@ export function FundingAllocator() {
                         <span className="text-sm text-white truncate">{allocation.countryName}</span>
                       </div>
                       <div className="flex items-center gap-2 shrink-0">
-                        <span className="text-xs text-gray-400">{allocation.needScore}</span>
+                        <span className="text-xs text-gray-400" title={`Original: ${allocation.needScore}`}>{allocation.compositeScore}</span>
                         <span className="text-sm font-semibold text-green-400">{formatShortCurrency(allocation.allocation)}</span>
                       </div>
                     </div>

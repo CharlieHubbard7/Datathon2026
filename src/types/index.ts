@@ -52,12 +52,24 @@ export interface AllocationResult {
   clusterId: number;
   clusterName: string;
   needScore: number;
+  compositeScore: number;  // Need score adjusted by cluster multiplier
   currentFundingPerPerson: number | null;
   allocation: number;
 }
 
+// Composite score data for a country (from K-Means clustering)
+export interface CompositeScoreData {
+  compositeScore: number;
+  clusterName: string;
+  multiplier: number;
+}
+
+export type CompositeScoreMap = Record<string, CompositeScoreData>;
+
 export interface GlobeState {
   countries: CountryDataMap;
+  compositeScores: CompositeScoreMap;  // ISO3 -> composite score data
+  clusters: ClusterInfo[];              // Computed clusters
   selectedCountry: string | null;
   hoveredCountry: string | null;
   heatmapEnabled: boolean;
@@ -66,6 +78,8 @@ export interface GlobeState {
   allocatorOpen: boolean;
 
   setCountries: (countries: CountryDataMap) => void;
+  setCompositeScores: (scores: CompositeScoreMap, clusters: ClusterInfo[]) => void;
+  getCompositeScore: (iso3: string) => number;
   selectCountry: (iso3: string | null) => void;
   setHoveredCountry: (iso3: string | null) => void;
   toggleHeatmap: () => void;

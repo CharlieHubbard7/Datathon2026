@@ -5,7 +5,7 @@ import { useStore } from '@/store/useStore';
 import { getScoreColor, getNeedLevel, NEED_LABELS } from '@/lib/colors';
 
 export function Tooltip() {
-  const { hoveredCountry, countries } = useStore();
+  const { hoveredCountry, countries, compositeScores } = useStore();
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -22,8 +22,11 @@ export function Tooltip() {
   }
 
   const country = countries[hoveredCountry];
-  const scoreColor = getScoreColor(country.need_score);
-  const needLevel = getNeedLevel(country.need_score);
+  // Use composite score (ML-adjusted)
+  const scoreData = compositeScores[hoveredCountry];
+  const compositeScore = scoreData?.compositeScore ?? country.need_score;
+  const scoreColor = getScoreColor(compositeScore);
+  const needLevel = getNeedLevel(compositeScore);
 
   return (
     <div
@@ -43,12 +46,12 @@ export function Tooltip() {
         </div>
         <div className="mt-2 text-sm">
           <div className="flex items-center justify-between gap-4">
-            <span className="text-gray-400">Need Score</span>
+            <span className="text-gray-400">Priority Score</span>
             <span
               className="font-bold"
               style={{ color: scoreColor }}
             >
-              {country.need_score}
+              {compositeScore}
             </span>
           </div>
           <div className="text-xs text-gray-500 mt-1">

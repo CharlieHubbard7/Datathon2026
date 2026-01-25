@@ -8,10 +8,11 @@ import { Leaderboard } from '@/components/UI/Leaderboard';
 import { CountryPanel } from '@/components/UI/CountryPanel';
 import { FundingAllocator } from '@/components/UI/FundingAllocator';
 import { useStore } from '@/store/useStore';
+import { computeCompositeScores } from '@/lib/allocator';
 import type { CountryDataMap } from '@/types';
 
 export default function Home() {
-  const { setCountries, isLoading, selectedCountry, setAllocatorOpen } = useStore();
+  const { setCountries, setCompositeScores, isLoading, selectedCountry, setAllocatorOpen } = useStore();
 
   // Load country data on mount
   useEffect(() => {
@@ -20,13 +21,17 @@ export default function Home() {
         const response = await fetch('/data/countries.json');
         const data: CountryDataMap = await response.json();
         setCountries(data);
+
+        // Compute composite scores using K-Means clustering
+        const { scores, clusters } = computeCompositeScores(data);
+        setCompositeScores(scores, clusters);
       } catch (error) {
         console.error('Failed to load country data:', error);
       }
     };
 
     loadData();
-  }, [setCountries]);
+  }, [setCountries, setCompositeScores]);
 
   return (
     <main className="relative w-screen h-screen overflow-hidden bg-black">

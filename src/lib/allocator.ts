@@ -116,7 +116,7 @@ export function clusterCountries(countriesMap: CountryDataMap): ClusterInfo[] {
   // Assign labels based on centroid characteristics (need vs funding)
   // Find median values for need and funding to determine high/low thresholds
   const needValues = clusters.map(c => c.avgNeedScore).sort((a, b) => a - b);
-  const fundingCentroids = clusters.map((c, i) => result.centroids[c.id]?.[1] ?? 0).sort((a, b) => a - b);
+  const fundingCentroids = clusters.map(c => result.centroids[c.id]?.[1] ?? 0).sort((a, b) => a - b);
 
   const medianNeed = needValues.length > 1
     ? (needValues[Math.floor(needValues.length / 2) - 1] + needValues[Math.floor(needValues.length / 2)]) / 2
@@ -153,9 +153,29 @@ export function clusterCountries(countriesMap: CountryDataMap): ClusterInfo[] {
 }
 
 /**
- * Allocate budget based on individual country need scores
- * Higher need score = higher individual allocation
- * Clusters are used for grouping/visualization only
+ * Get cluster multiplier based on cluster type
+ * High Need Low Funding gets the highest multiplier (most critical)
+ * Low Need High Funding gets the lowest (already well-supported)
+ */
+function getClusterMultiplier(clusterName: string): number {
+  switch (clusterName) {
+    case 'High Need Low Funding':
+      return 1.5;  // +50% boost - most critical, needs urgent funding
+    case 'Low Need Low Funding':
+      return 1.2;  // +20% boost - underfunded, deserves attention
+    case 'High Need High Funding':
+      return 1.0;  // neutral - high need but already getting support
+    case 'Low Need High Funding':
+      return 0.7;  // -30% - well covered, redirect resources elsewhere
+    default:
+      return 1.0;
+  }
+}
+
+/**
+ * Allocate budget based on composite need scores
+ * Composite score = original need score × cluster multiplier
+ * This ensures cluster characteristics influence final allocation
  */
 export function allocateBudget(
   clusters: ClusterInfo[],
@@ -170,9 +190,6 @@ export function allocateBudget(
   const allCountryIsos = clusters.flatMap(c => c.countries);
   const allCountries = allCountryIsos.map(iso3 => countriesMap[iso3]).filter(Boolean);
 
-  // Calculate total need score across ALL countries
-  const totalNeedScore = allCountries.reduce((sum, c) => sum + c.need_score, 0);
-
   // Build a map of iso3 -> cluster info for labeling
   const countryToCluster = new Map<string, ClusterInfo>();
   for (const cluster of clusters) {
@@ -181,16 +198,42 @@ export function allocateBudget(
     }
   }
 
-  // Allocate to each country based on their individual need score
+  // Calculate raw composite need scores (original need × cluster multiplier)
+  const rawCompositeScores = new Map<string, number>();
+  let totalRawScore = 0;
+  let minRaw = Infinity;
+  let maxRaw = -Infinity;
+
+  for (const country of allCountries) {
+    const cluster = countryToCluster.get(country.iso3)!;
+    const multiplier = getClusterMultiplier(cluster.name);
+    const rawScore = country.need_score * multiplier;
+    rawCompositeScores.set(country.iso3, rawScore);
+    totalRawScore += rawScore;
+    minRaw = Math.min(minRaw, rawScore);
+    maxRaw = Math.max(maxRaw, rawScore);
+  }
+
+  // Normalize composite scores to 0-100 for display
+  const rangeRaw = maxRaw - minRaw;
+  const normalizedScores = new Map<string, number>();
+  rawCompositeScores.forEach((raw, iso3) => {
+    const normalized = rangeRaw > 0 ? Math.round(((raw - minRaw) / rangeRaw) * 100) : 50;
+    normalizedScores.set(iso3, normalized);
+  });
+
+  // Allocate to each country based on their RAW composite need score (for proper proportions)
   const allocations: AllocationResult[] = [];
   const clusterAllocations = new Map<number, number>(); // Track totals per cluster
 
   for (const country of allCountries) {
-    // Individual allocation based on need score proportion
-    const share = totalNeedScore > 0 ? country.need_score / totalNeedScore : 1 / allCountries.length;
-    const allocation = share * totalBudget;
-
     const cluster = countryToCluster.get(country.iso3)!;
+    const rawScore = rawCompositeScores.get(country.iso3)!;
+    const normalizedScore = normalizedScores.get(country.iso3)!;
+
+    // Allocation based on RAW composite score proportion (not normalized, for correct proportions)
+    const share = totalRawScore > 0 ? rawScore / totalRawScore : 1 / allCountries.length;
+    const allocation = share * totalBudget;
 
     allocations.push({
       iso3: country.iso3,
@@ -198,6 +241,7 @@ export function allocateBudget(
       clusterId: cluster.id,
       clusterName: cluster.name,
       needScore: country.need_score,
+      compositeScore: normalizedScore, // Display normalized 0-100 score
       currentFundingPerPerson: country.cbpf_budget_per_in_need,
       allocation,
     });
@@ -214,8 +258,8 @@ export function allocateBudget(
     cluster.allocation = clusterAllocations.get(cluster.id) || 0;
   }
 
-  // Sort allocations by amount (highest first)
-  allocations.sort((a, b) => b.allocation - a.allocation);
+  // Sort allocations by composite score (highest first)
+  allocations.sort((a, b) => (b.compositeScore ?? 0) - (a.compositeScore ?? 0));
 
   return { clusters, allocations };
 }
@@ -229,4 +273,69 @@ export function runAllocation(
 ): { clusters: ClusterInfo[]; allocations: AllocationResult[] } {
   const clusters = clusterCountries(countriesMap);
   return allocateBudget(clusters, countriesMap, budget);
+}
+
+/**
+ * Compute composite scores for all countries based on K-Means clustering
+ * Returns a map of ISO3 -> composite score data (normalized to 0-100)
+ */
+export function computeCompositeScores(
+  countriesMap: CountryDataMap
+): {
+  scores: Record<string, { compositeScore: number; clusterName: string; multiplier: number }>;
+  clusters: ClusterInfo[];
+} {
+  const clusters = clusterCountries(countriesMap);
+
+  if (clusters.length === 0) {
+    return { scores: {}, clusters: [] };
+  }
+
+  // Build a map of iso3 -> cluster info
+  const countryToCluster = new Map<string, ClusterInfo>();
+  for (const cluster of clusters) {
+    for (const iso3 of cluster.countries) {
+      countryToCluster.set(iso3, cluster);
+    }
+  }
+
+  // First pass: calculate raw composite scores and find min/max for normalization
+  const rawScores: Record<string, { rawScore: number; clusterName: string; multiplier: number }> = {};
+  let minScore = Infinity;
+  let maxScore = -Infinity;
+
+  for (const [iso3, country] of Object.entries(countriesMap)) {
+    const cluster = countryToCluster.get(iso3);
+    if (cluster) {
+      const multiplier = getClusterMultiplier(cluster.name);
+      const rawScore = country.need_score * multiplier;
+      rawScores[iso3] = { rawScore, clusterName: cluster.name, multiplier };
+      minScore = Math.min(minScore, rawScore);
+      maxScore = Math.max(maxScore, rawScore);
+    } else {
+      // Countries not in clusters (e.g., no people_in_need) keep original score
+      rawScores[iso3] = { rawScore: country.need_score, clusterName: 'N/A', multiplier: 1.0 };
+      minScore = Math.min(minScore, country.need_score);
+      maxScore = Math.max(maxScore, country.need_score);
+    }
+  }
+
+  // Second pass: normalize to 0-100 scale
+  const scores: Record<string, { compositeScore: number; clusterName: string; multiplier: number }> = {};
+  const range = maxScore - minScore;
+
+  for (const [iso3, data] of Object.entries(rawScores)) {
+    // Normalize: (value - min) / (max - min) * 100
+    const normalizedScore = range > 0
+      ? Math.round(((data.rawScore - minScore) / range) * 100)
+      : 50; // If all scores are the same, default to 50
+
+    scores[iso3] = {
+      compositeScore: normalizedScore,
+      clusterName: data.clusterName,
+      multiplier: data.multiplier,
+    };
+  }
+
+  return { scores, clusters };
 }

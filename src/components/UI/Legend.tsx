@@ -1,15 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { NEED_COLORS, NEED_LABELS, type NeedLevel } from '@/lib/colors';
+import { NEED_COLORS, NEED_LABELS, NO_DATA_COLOR, type NeedLevel } from '@/lib/colors';
 
 const LEGEND_ITEMS: { level: NeedLevel; range: string }[] = [
   { level: 'extreme', range: '81-100' },
   { level: 'severe', range: '61-80' },
   { level: 'high', range: '41-60' },
   { level: 'moderate', range: '21-40' },
-  { level: 'low', range: '1-20' },
-  { level: 'none', range: '0' },
+  { level: 'low', range: '0-20' },
 ];
 
 export function Legend() {
@@ -23,7 +22,7 @@ export function Legend() {
           className="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-gray-800/50"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          <span className="text-sm font-medium text-white">Need Score Legend</span>
+          <span className="text-sm font-medium text-white">Priority Score Legend</span>
           <svg
             className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
             fill="none"
@@ -51,6 +50,15 @@ export function Legend() {
                   <span className="text-xs text-gray-500">{range}</span>
                 </div>
               ))}
+              {/* No Data entry */}
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-4 h-4 rounded-sm"
+                  style={{ backgroundColor: NO_DATA_COLOR }}
+                />
+                <span className="text-xs text-gray-300 flex-1">No Data</span>
+                <span className="text-xs text-gray-500">-</span>
+              </div>
             </div>
 
             {/* Data note */}

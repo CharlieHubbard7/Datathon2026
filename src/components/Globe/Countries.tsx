@@ -225,7 +225,7 @@ interface CountriesProps {
 }
 
 export function Countries({ visible = true }: CountriesProps) {
-  const { countries, selectedCountry, hoveredCountry, selectCountry, setHoveredCountry } =
+  const { countries, compositeScores, selectedCountry, hoveredCountry, selectCountry, setHoveredCountry } =
     useStore();
   const [geoData, setGeoData] = useState<GeoJSONCollection | null>(null);
 
@@ -275,11 +275,13 @@ export function Countries({ visible = true }: CountriesProps) {
         />
       ))}
 
-      {/* Render countries with data (with heatmap colors) */}
+      {/* Render countries with data (with heatmap colors based on composite score) */}
       {countriesWithData.map((feature) => {
         const iso3 = feature.properties.ISO_A3;
         const country = countries[iso3];
-        const color = getScoreColor(country.need_score);
+        // Use composite score (ML-adjusted) for coloring, fallback to original need_score
+        const compositeScore = compositeScores[iso3]?.compositeScore ?? country.need_score;
+        const color = getScoreColor(compositeScore);
 
         return (
           <CountryMesh
