@@ -13,6 +13,7 @@ export const useStore = create<GlobeState>((set, get) => ({
   heatmapEnabled: true,
   isLoading: true,
   chatHistories: {},
+  allocatorOpen: false,
 
   setCountries: (countries: CountryDataMap) => set({ countries, isLoading: false }),
 
@@ -56,4 +57,6 @@ export const useStore = create<GlobeState>((set, get) => ({
     const state = get();
     return state.chatHistories[iso3] || initialChatHistory;
   },
+
+  setAllocatorOpen: (open: boolean) => set({ allocatorOpen: open }),
 }));

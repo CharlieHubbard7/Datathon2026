@@ -34,6 +34,28 @@ export interface HoverInfo {
 
 export type NeedLevel = 'none' | 'low' | 'moderate' | 'high' | 'severe' | 'extreme';
 
+// ML Funding Allocator types
+export interface ClusterInfo {
+  id: number;
+  name: string;
+  color: string;
+  avgNeedScore: number;
+  avgFunding: number;
+  priority: number;
+  countries: string[];
+  allocation: number;
+}
+
+export interface AllocationResult {
+  iso3: string;
+  countryName: string;
+  clusterId: number;
+  clusterName: string;
+  needScore: number;
+  currentFundingPerPerson: number | null;
+  allocation: number;
+}
+
 export interface GlobeState {
   countries: CountryDataMap;
   selectedCountry: string | null;
@@ -41,6 +63,7 @@ export interface GlobeState {
   heatmapEnabled: boolean;
   isLoading: boolean;
   chatHistories: ChatHistoryMap;
+  allocatorOpen: boolean;
 
   setCountries: (countries: CountryDataMap) => void;
   selectCountry: (iso3: string | null) => void;
@@ -50,4 +73,5 @@ export interface GlobeState {
   addChatMessage: (iso3: string, message: ChatMessage) => void;
   setSummary: (iso3: string, summary: string) => void;
   getChatHistory: (iso3: string) => ChatHistory;
+  setAllocatorOpen: (open: boolean) => void;
 }
