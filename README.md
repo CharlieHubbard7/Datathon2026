@@ -1,144 +1,61 @@
-# 🌍 3D Globe Severity Heatmap
+# Need Map: where humanitarian aid falls short
 
-An interactive 3D globe visualization that displays global severity data as a heatmap overlaid on a rotating, zoomable Earth with country boundaries.
+CMU Data Science Club Datathon 2026 (United Nations data). Team: Charlie Hubbard, Adam Kablawi, Eddie Liu.
 
-This project renders a realistic globe using web-based 3D graphics and overlays:
+The question was which countries have the largest gap between humanitarian need and the funding they receive. We scored every country in the UN's Humanitarian Needs Overview data, compared that score with pooled-fund spending per person in need, and built a 3D globe for exploring the result.
 
-* **Country outlines** mapped accurately to the globe surface
-* **Severity heatmap data** visualized geographically
-* **Interactive controls** for rotation and zoom
+<img width="1271" alt="Globe view" src="https://github.com/user-attachments/assets/b36c09c1-eaad-4af6-9ae1-fc4417378578" />
 
----
+## The analysis
 
-## ✨ Features
+The notebook [`DSC_Datathon_2026_Starter_Notebook.ipynb`](DSC_Datathon_2026_Starter_Notebook.ipynb) builds the scores. It uses two datasets:
+- **HPC/HNO** (2024 and 2025): population, people in need, and people reached, by country.
+- **CBPF projects**: the UN's Country-Based Pooled Funds budgets, by country.
 
-*  **3D Interactive Globe** (rotate, pan, zoom)
-*  **Accurate Country Borders** rendered from GeoJSON data
-*  **Severity Heatmap Overlay** mapped to latitude/longitude
-*  **AI Agent** for humanitarian inquiry
-*  **Funding Allocation** by linear proportionality
+**Priority score.** From the HNO data we compute four measures:
+- need intensity: people in need ÷ population;
+- neglect severity: people in need but not reached ÷ population;
+- unmet need: people in need but not reached;
+- low coverage: 1 − share of people in need who were reached.
 
----
+Each measure is converted to a percentile and combined with weights:
 
-## 🛠️ Tech Stack
+| Measure | Weight |
+|---|---|
+| Neglect severity | 35% |
+| Need intensity | 30% |
+| Unmet need | 20% |
+| Low coverage | 15% |
 
-* **Three.js** – 3D rendering and scene management
-* **GeoJSON** – Country boundary data
-* **JavaScript / HTML / CSS** – Core application logic and UI
-* *(Optional)* D3.js – For geographic projections and data mapping
+The combined score is rescaled to 35–100.
 
----
+**Mismatch.** Need and CBPF funding per person in need are each percentile-normalized. Mismatch = need − funding, so high values are countries that are badly off and underfunded.
 
-## 📸 Preview
+**Clustering.** K-means (k = 4) on need score, funding per person, coverage gap, and the log of people in need. This groups countries into crisis types and picks out a cluster that is high-need but underfunded.
 
-<img width="1271" height="584" alt="Screenshot 2026-01-25 at 12 50 58 PM" src="https://github.com/user-attachments/assets/b36c09c1-eaad-4af6-9ae1-fc4417378578" />
-<img width="1275" height="590" alt="Screenshot 2026-01-25 at 12 51 12 PM" src="https://github.com/user-attachments/assets/4d3a771d-5a94-4fcd-a2f1-83faa44cbf29" />
-<img width="1272" height="589" alt="Screenshot 2026-01-25 at 12 51 23 PM" src="https://github.com/user-attachments/assets/7058c9a5-3ddd-4720-a46a-d65f7fa1da65" />
-<img width="1279" height="591" alt="Screenshot 2026-01-25 at 12 51 37 PM" src="https://github.com/user-attachments/assets/10a5e899-aa8d-4236-9630-e3aed51e89d0" />
+## The app
 
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-* Node.js (v16+ recommended)
-* A modern web browser with WebGL support
-
-### Installation
+A Next.js app built on the preprocessed data:
+- **Globe:** react-three-fiber and three.js, with country shapes from GeoJSON projected with d3-geo and triangulated with earcut, colored by need score. A year selector switches between 2024 and 2025.
+- **Country panel:** the indicators behind each country's score.
+- **Leaderboard:** countries ranked by need.
+- **Funding allocator:** enter a budget and it is split across countries in proportion to need score, adjusted up or down by each country's cluster. This runs in the browser, with a hand-written k-means in [`src/lib/kmeans.ts`](src/lib/kmeans.ts).
+- **Chat:** asks an OpenAI model (`gpt-4o-mini`) questions about a country's situation, through a Next.js API route.
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
 npm install
+node scripts/preprocess-data.js 2025   # CSV → public/data JSON (2024 also supported)
+npm run dev                             # needs OPENAI_API_KEY for the chat panel
 ```
 
-### Run Locally
+## Who did what
 
-```bash
-npm run dev
-```
+- Charlie wrote the analysis notebook: data cleaning, the priority score, the mismatch ranking and the clustering.
+- Adam built the web app. The app's preprocessing script ports the notebook's scoring.
 
-Then open your browser at:
+Demo videos and more screenshots are in [`Extra/`](Extra/).
 
-```
-http://localhost:3000
-```
+## Limitations
 
----
-
-## 🗺️ How Country Borders Are Rendered
-
-* Country boundary data is loaded from a **GeoJSON world dataset**
-* Coordinates are converted from latitude/longitude to spherical positions
-* Borders are drawn as thin line geometries slightly above the globe surface
-* Lines are rendered subtly to avoid obscuring the heatmap
-
----
-
-## 🔥 Heatmap Data
-
-* Severity values are mapped to geographic coordinates
-* Data is visualized using color intensity on the globe surface
-* Supports dynamic or real-time data updates
-
-You can modify the heatmap source in:
-
-```
-/src/data/
-```
-
----
-
-## 📁 Project Structure
-
-```
-├── public/
-│   └── assets/
-│       └── geojson/
-│           └── countries.geojson
-├── src/
-│   ├── globe/
-│   │   ├── Globe.js
-│   │   ├── HeatmapLayer.js
-│   │   └── CountryOutlines.js
-│   ├── data/
-│   └── index.js
-├── package.json
-└── README.md
-```
-
----
-
-## 🧩 Customization
-
-* Adjust globe radius, colors, or lighting in `Globe.js`
-* Change border thickness or color in `CountryOutlines.js`
-* Plug in new datasets to visualize different metrics globally
-
----
-
-## 🧠 Future Improvements
-
-* Tooltips on hover (country name + severity)
-* Time-based animations for severity changes
-* Mobile performance optimizations
-* Texture-based map rendering
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
-
----
-
-## 🙌 Acknowledgments
-
-* Natural Earth & GeoJSON contributors
-* Three.js community
-* Open-source data visualization tools
-
----
-
-Built with curiosity, caffeine, and a love for maps 🌎
+- The data covers only countries with a UN humanitarian response plan. A country missing from it gets no score; that doesn't mean it has no need.
+- The allocator is an illustration of need-weighted budgeting, not a recommendation.
